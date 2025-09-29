@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>Fabrice Kntumba</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="stylesheet" type="text/css" href="css/vendor/evo-calendar.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/vendor/evo-calendar.midnight-blue.min.css"/>
+	<link rel="stylesheet" href="css/vendor/spectre.min.css">
+	<link rel="stylesheet" href="css/vendor/spectre-exp.min.css">
+	<link rel="stylesheet" href="css/vendor/spectre-icons.min.css">
+	<style>
+	 #LOGO{
+	     width: 150px;
+	 }
+
+	 .btn-link{
+	     color: #ffffff !important;
+	     background-color: teal !important;
+	 }
+
+	 header{
+	     padding: 1em;
+	 }
+	</style>
+    </head>
+    <body>
+	<header class="navbar">
+	    <section class="navbar-section">
+		<div class="dropdown">
+		    <a href="#" class="btn btn-link dropdown-toggle" tabindex="0">
+		      <i class="icon icon-menu"></i>
+		    </a>
+		    <!-- menu component -->
+		    <ul class="menu">
+			<li class="menu-item">
+			    <a href="index.html">
+				Home
+			    </a>
+			</li>
+			<li class="menu-item">
+			    <a href="events.html">
+				Events
+			    </a>
+			</li>
+			<li class="menu-item">
+			    <a href="music.html">
+				Music
+			    </a>
+			</li>
+		    </ul>
+		</div>
+	    </section>
+	    <section class="navbar-center">
+		<img src="img/logo-zoom-green.png" id="LOGO">
+	    </section>
+	    <section class="navbar-section">
+	    </section>
+	</header>
+
+        <div id="calendar"></div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="js/evo-calendar.js"></script>
+
+        <script>
+
+         $(document).ready(function() {
+             $('#calendar').evoCalendar({
+		 theme: "Midnight Blue"
+             })
+         })
+        </script>
+
+    </body>
+</html>

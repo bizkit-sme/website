@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+	<meta charset="UTF-8" />
+	<title>Fabrice Kntumba</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="description" content="" />
+	<link rel="icon" href="favicon.png">
+	<link rel="stylesheet" href="css/vendor/spectre.min.css">
+	<link rel="stylesheet" href="css/vendor/spectre-exp.min.css">
+	<link rel="stylesheet" href="css/vendor/spectre-icons.min.css">
+	<style>
+	 @font-face {
+	     font-family: 'Univers-Regular';
+	     src: URL('fonts/UniversRegular.ttf') format('truetype');
+	 }
+
+	 body{
+	     color: #000000;
+	     font-family: 'Univers-Regular';
+	     background-size: 100%;
+	     background-repeat: no-repeat;
+	 }
+
+	 .dropdown, .btn.btn-link{
+	     background-color: #ffffff;
+	     color: teal;
+	 }
+
+	 .btn-link:hover, .btn:hover, .dropdown:focus{
+	     background-color: teal;
+	     color: #ffffff !important;
+	 }
+
+	 .column {
+	     padding: 3em;
+	 }	
+	 
+	 #LOGO{
+	     width: 150px;
+	 }
+
+	 #INTRO{
+	     padding-top: 2em;
+	 }
+	 
+	 #INTRO_CONTAINER, #ABOUT_CONTAINER{
+	     min-height: 100vh;
+	 }
+
+	 #INTRO, #ABOUT{
+	     font-size: 30px;
+	 }
+	 #COVER{
+	     background-image: url("img/main.jfif");
+	     background-size: 100% 100%;
+	     background-repeat: no-repeat;
+	 }
+
+	 #STRETCH {
+	     background-image: url("img/b.png");
+	     background-size: 100% 100%;
+	     background-repeat: no-repeat;
+	     min-height: 45vh;
+	 }
+
+	 .btn{
+	     background-color: #4e766d;
+	     color: #000000;
+	     border-color: #4e766d;
+	 }
+	 
+	 #ABOUT_CONTAINER{
+	     background-color: #4e766d;
+	     color: #ffffff;
+	     font-size: .9em;
+	 }
+
+	 #YOUTUBE_CONTAINER{
+	     padding: 0;
+	 }
+
+	 #INTRO_CONTAINER{
+	     background-color: #ffffff;
+	 }
+
+	 iframe {
+	     width: 100%;
+	     min-height: 70vh;	 
+	 }
+
+	 @media only screen and (max-width: 1122px) {
+	     #INTRO, #ABOUT{
+		 font-size: 28px;
+	     }
+
+	     #ABOUT_CONTAINER, iframe{
+		 min-height: 85vh;
+	     }
+
+	 }
+	 @media only screen and (max-width: 834px) {
+	     #INTRO, #ABOUT{
+		 font-size: 12px;
+	     }
+
+	     #ABOUT_CONTAINER, iframe{
+		 min-height: 50vh;
+	     }
+
+	     #COVER {
+		 height: 50vh;
+	     }
+	     #INTRO_CONTAINER{
+		 height: 50vh;
+	     }
+
+	     #INTRO_CONTAINER, #ABOUT_CONTAINER, iframe{
+		 min-height: 50vh;
+	     }
+
+	 }
+	 @media only screen and (max-width: 636px) {
+	     #INTRO, #ABOUT{
+		 font-size: 16px;
+	     }
+
+	     #INTRO_CONTAINER, #ABOUT_CONTAINER, iframe{
+		 min-height: 50vh;
+	     }
+
+	     .column {
+		 padding: 1em;
+	     }
+	 }
+
+	 @media only screen and (max-width: 548px) {
+	     #INTRO, #ABOUT{
+		 font-size: 14px;
+	     }
+
+	     #INTRO_CONTAINER, #ABOUT_CONTAINER, iframe{
+		 min-height: 35vh;
+	     }
+
+	 }
+
+	 @media only screen and (max-width: 390px) {
+	     #INTRO, #ABOUT{
+		 font-size: 10px;
+	     }
+
+	     #INTRO_CONTAINER, #ABOUT_CONTAINER, iframe{
+		 min-height: 30vh;
+	     }
+
+	 }
+	</style>
+    </head>
+
+    <body>
+	<div class="container">
+	    <div class="columns">
+		<div class="column col-6" id="COVER">
+		    <div class="dropdown">
+			<a href="#" class="btn btn-link dropdown-toggle" tabindex="0">
+			    <i class="icon icon-menu"></i>
+			</a>
+			<!-- menu component -->
+			<ul class="menu">
+			    <li class="menu-item">
+				<a href="index.html">
+				    Home
+				</a>
+			    </li>
+			    <li class="menu-item">
+				<a href="events.html">
+				    Events
+				</a>
+			    </li>
+			    <li class="menu-item">
+				<a href="music.html">
+				    Music
+				</a>
+			    </li>
+			</ul>
+		    </div>
+		</div>
+		<div class="column col-6" id="INTRO_CONTAINER">
+		    <header class="navbar">
+			<section class="navbar-section"></section>
+			<section class="navbar-section">
+			    <img src="img/logo-zoom-green.png" id="LOGO">
+			</section>
+			<section class="navbar-section"></section>
+		    </header>
+		    <p id="INTRO">
+			Fabrice Kntumba is an accomplished saxophonist
+			based in Windhoek, specializing in elegant
+			and engaging background music for a variety
+			of social events, including gala dinners,
+			weddings, and corporate functions.
+		    </p>
+		    <a class="btn" href="mailto:bookings@fabricekntumba.com?subject=Website Bookings">BOOKINGS</a>
+		</div>
+	    </div>
+	    <div class="columns">
+		<div class="column col-6" id="ABOUT_CONTAINER">
+		    <p id="ABOUT">
+			Fabrice's music is a journey through a diverse
+			repertoire of jazz standards, smooth jazz,
+			blues, and captivating Latin melodies. This
+			variety ensures a sophisticated and enjoyable
+			atmosphere for any occasion. He is a
+			recognized talent in Namibia, with a track
+			record of performances for prestigious
+			clients such as the University of Namibia,
+			Namibian Broadcasting Corporation, The
+			Village Garden, and The Sky Restaurant.
+		    </p>
+		</div>
+		<div class="column col-6" id="STRETCH"></div>
+	    </div>
+	    <div class="columns">
+		<div class="column col-12" id="YOUTUBE_CONTAINER">
+		    <iframe
+			src="https://www.youtube.com/embed/1CdbIglu3G0"
+			title="My Worship_ Fabrice Kntumba Saxophone Instrumental (Official Video)"
+			frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			referrerpolicy="strict-origin-when-cross-origin"
+			allowfullscreen>
+		    </iframe>
+		</div>
+	    </div>
+
+	    <div class="columns">
+		<div class="column col">
+		    <a href="https://www.instagram.com/fabricekntumba/">
+			<img src="img/icons/instagram.png">
+		    </a><br>
+		</div>
+
+		<div class="column col">
+		    <a href="https://www.youtube.com/@Fabricek">
+			<img src="img/icons/youtube.png">
+		    </a>
+		</div>
+
+		<div class="column col">
+		    <a href="tel:+264814623936">
+			<img src="img/icons/phone.png">
+		    </a>	
+		</div>
+
+		<div class="column col">
+		    <a href="mailto:bookings@fabricekntumba.com">
+			<img src="img/icons/email.png">
+		    </a>	
+		</div>
+	    </div>
+	</div>
+
+    </body>
+</html>

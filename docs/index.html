@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+	<meta charset="UTF-8" />
+	<title>BizKit Network</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="description" content="" />
+	<link rel="icon" href="favicon.png">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+	      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+	      crossorigin=""/>
+	<link rel="stylesheet" href="css/vendor/spectre.min.css">
+	<link rel="stylesheet" href="css/vendor/spectre-exp.min.css">
+	<link rel="stylesheet" href="css/vendor/spectre-icons.min.css">
+	</style>
+    </head>
+
+    <style>
+     @font-face {
+	 font-family: 'Univers-Regular';
+	 src: URL('fonts/UniversRegular.ttf') format('truetype');
+     }
+     body{
+	 padding: 2em;
+	 font-family: "Univers-Regular";
+	 color: #FFFFFF;
+	 background-image: linear-gradient(to top, #4fb576 0%, #44c489 30%, #28a9ae 46%, #28a2b7 59%, #4c7788 71%, #6c4f63 86%, #432c39 100%);
+     }
+
+     p, h1, h6, h3, li, h4, a {
+	 opacity: .8;
+     }
+
+     #LOGO{
+	 width: 80px;
+	 border-radius: 50%;
+	 margin-bottom: 2em;
+     }
+
+     .logo{
+	 width: 90%;
+	 text-align: center;
+     }
+
+     .hero {
+	 background-image: url("img/bg.jpg");
+	 border-radius: 7px !important;
+	 margin-bottom: 20px;
+	 background-repeat: no-repeat;
+	 background-position: center top;
+	 background-size: 100%;
+     }
+
+     .sme{
+	 padding: 1em;
+	 margin-right: 2px;
+	 margin-bottom: 4px;
+     }
+
+     .dark{
+	 font-weight: bold;
+	 font-size: 20px;
+	 padding: 5px;
+     }
+
+     footer{
+	 margin-top: 5em;
+	 left: 0;
+	 padding: 2px;
+	 text-align: center;
+
+     }
+
+     .btn{
+	 margin: 0 auto;
+	 background-image: linear-gradient(to top, #4fb576 0%, #44c489 30%, #28a9ae 46%, #28a2b7 59%, #4c7788 71%, #6c4f63 86%, #432c39 100%) !important;
+	 border: none;
+     }
+
+     a {
+	 color: #ffffff;
+	 text-decoration: underline;
+     }
+    </style>
+    <body>
+	<header class="navbar">
+	    <section class="navbar-section"></section>
+	    <section class="navbar-center">
+		<img src="img/logo.png" id="LOGO">
+	    </section>
+	    <section class="navbar-section"></section>
+	</header>
+	<h1 class="text-center">BizKit <b>Network</b></h1>
+	<div class="hero">
+	    <div class="hero-body"></div>
+	</div>
+	<p class="light">
+	    Like it or not, the internet is now an integral part of
+	    society. This is not surprising, it gives us magical
+	    abilities and connects everyone (and things)
+	    in “real time”.
+	</p>
+
+	<div class="container" id="ICONS">
+	    <div class="columns">
+		<div class="column col-3 col-mx-auto iconsContainers">
+		    <img src="img/icons/email.png">
+		    <h6>Private Email</h6>
+		</div>
+		<div class="column col-3 col-mx-auto iconsContainers">
+		    <img src="img/icons/internet.png">
+		    <h6>Website Design</h6>
+		</div>
+		<div class="column col-3 col-mx-auto iconsContainers">
+		    <img src="img/icons/shape.png">
+		    <h6>Company Branding</h6>
+		</div>
+	    </div>
+	</div>
+
+
+	<p class="dark">
+	    Small and Mid-size Enterprises (SMEs) today can tap into
+	    the magic of the internet, giving their business new
+	    abilities that make them stand out to customers and
+	    enhance their day-to-day operations.
+	</p>
+
+	<h3>Included In The BizKit Package:</h3>
+	<ul>
+	    <li>Customized email addresses with the SME’s domain name.</li>
+	    <li>A complete dynamic full-stack website, tailored made</li>
+	    <li>Dashboard App</li>
+	    <li>Digital Marketing </li>
+	    <li>Cybersecurity</li>
+	    <li>Analytics</li>
+	</ul>
+	<br>
+	<h4>Websites We Designed:</h4>
+	<div class="container">
+	    <div class="columns">
+		<div class="column col-2 col-sm-12 text-center sme">
+		    <img src="img/sme/tilahil.png" class="logo">
+		    <a href="https://tilahiltrading.com/">TILAHIL TRADING CC</a>
+		</div>
+
+		<div class="column col-2 col-sm-12 text-center sme">
+		    <img src="img/sme/uncharted.jpeg" class="logo">
+		    <a href="https://uncharted-safaris.tours/">UNCHARTED TOURS & SAFARIS</a>
+		</div>
+
+		<div class="column col-2 col-sm-12 text-center sme">
+		    <img src="img/sme/npwcb.jpg" class="logo">
+		    <a href="demo/boxing/index.html">NPBWCB</a>
+		</div>
+
+		<div class="column col-2 col-sm-12 text-center sme">
+		    <img src="img/sme/fabrice.png" class="logo">
+		    <a href="demo/fabrice/index.html">Fabrice Music</a>
+		</div>
+	    </div>
+	</div>
+	<br>
+	<footer>
+	    <a href="https://www.facebook.com/profile.php?id=61568078046172">Facebook</a> |
+	    <a href="https://www.instagram.com/bizkitapp/">Instagram</a> |
+	    <a href="mailto:info@bizkit.network">Email</a>
+	</footer>
+    </body>
+</html>

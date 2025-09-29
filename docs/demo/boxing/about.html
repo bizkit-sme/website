@@ -1,0 +1,384 @@
+<!DOCTYPE html><head lang="en"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="stylesheet" href="css/vendor/spectre.min.css"><link rel="stylesheet" href="css/vendor/spectre-exp.min.css"><link rel="stylesheet" href="css/vendor/spectre-icons.min.css"><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link><title>Namibia Professional Boxing and Wrestling Control Board (NPBWCB)</title><style>
+@font-face {
+  font-family: 'Univers-Regular';
+  src: URL('fonts/UniversRegular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Univers-Bold';
+  src: URL('fonts/UniversBold.ttf') format('truetype');
+}
+
+#HERO3 {
+  border: none !important;
+  height: 95vh !important;
+  background-position: center bottom !important;
+}
+
+#HERO{
+  background-position: center top !important;
+}
+
+#HEROHEADING{
+  width: 50vw;
+  text-shadow: black 1px 1px 1px;
+  font-family: "Univers-Bold";
+  font-size: 3.3em !important;
+  text-align: left;
+  margin-top: 10vh;
+  1px 1px 1px #000000;
+}
+
+#HERO img{
+  width: 20vw !important;
+}
+
+#ServicesContentWidget .card{
+  background: transparent !important;
+}
+
+#HEROSUBHEADING{
+  font-size: 1.4em;
+}
+
+li {
+  color: #ffffff;
+}
+
+.navlink {  
+  font-family: "Univers-Bold" !important;
+  font-size: 1em;
+}
+
+.navlink:hover {
+  color: #c92a2a !important;
+}
+
+#EVENT_CARD_HEADING{
+  font-family: "Univers-Bold" !important;
+  font-size: 2em !important;
+}
+
+#EVENT p{
+  font-size: 1.5em !important;
+  font-family: "Univers-Regular" !important;
+}
+
+#EVENT #EVENT_BTN2{
+  background: #c92a2a !important;
+  color: #ffffff !important;
+  border-color: #c92a2a !important;
+}
+
+#EVENT img{
+  border-radius: 25px !important;
+  border: none;
+}
+
+#NEWS{
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-image: url("./training.jpg");
+  background-size:100%;
+  background-attachment: fixed;
+}
+
+#NEWS h3{
+  color: #FFFFFF;
+  padding-top: 0 !important;
+}
+
+.newsArticleContainer{
+  background-color: #fefefe !important;
+  background: linear-gradient(60deg,rgba(0, 8, 81, 1) 15%, rgba(0, 0, 0, 1) 53%, rgba(201, 42, 42, 1) 86%);
+  color: #ffffff;
+  border-radius: 7px;
+  border: none !important;
+}
+
+.newsArticleContainer h5{
+  color: #FFFFFF;
+}
+
+.newsArticleContainer h7{
+  color: gray !important;
+  margin: 2em 0 !important;
+  font-family: "Univers-Regular" !important;
+}
+
+.newsArticleContainer img{
+  border-radius: 25px;
+  width: 77%;
+  border: none;
+}
+
+.newsButton{
+  background: #142b58 !important;
+  border-color: #142b58;
+  width: 100%;
+  border-radius: 7px;
+}
+
+#MOBILE_NAVIGATION{
+  position: fixed;
+  top: 0;
+}
+
+#ServicesContentWidget{
+  font-family: "Univers-Regular" !important;
+}
+
+#ServicesContentWidget h3{
+  font-family: "Univers-Bold" !important;
+  margin-bottom: 2em !important;
+}
+
+#ServicesContentWidget .card img{
+  width: 100px !important;
+}
+#HERO3 p{
+  text-shadow: 1px 1px 1px gray;
+}
+
+#FooterWidget{
+  background-position: center top !important;
+}
+
+#MOBILE_NAVIGATION{
+  position: fixed;
+}
+
+#MOBILE_NAVIGATION .btn.btn-link{
+  color: #c92a2a !important;
+}
+
+@media only screen and (max-width: 663px) {
+  #MOBILE_LOGO{
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 1183px) {
+  #HERO3{
+    background-position: center top !important;
+    height: 30vh !important;
+    background-size: 100% !important;
+    padding-top: 0 !important;
+  }
+
+  #HEROHEADING{
+    font-size: 1.3em !important;
+    width: 80% !important;
+    text-align: left;
+    margin-top: 1em;
+  }
+
+  #HERO3 .btn{
+    font-size: .9em !important;
+    color: #FFFFFF !important;
+  }
+
+  #HEROSUBHEADING{
+    font-size: .8em;
+  }
+
+  #EVENT_CARD_HEADING{
+    font-size: 1.2em !important;
+  }
+
+  .event-card-section li{
+    font-size: .8em !important;
+  }
+
+  #EVENT p{
+    font-size: 1em !important;
+  }
+
+  #NEWS{
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding-left: 0em !important;
+    padding-right: 0em !important;
+    background-image: url("./portrait.jpg");
+  }
+
+  #NEWS p{
+    max-width: 80%;
+    max-height: 8em;
+  }
+
+  #NEWS_CONTAINER{
+    max-width: 95%;
+  }
+}</style><style>
+nav {
+  background-color: rgb(247,247,247);
+  border: thin solid rgba(0,0,0,0.05);
+}
+
+#LOGO{
+  width: 120px;
+}
+
+.navlink{
+  color: rgb(20,43,88) !important;
+  font-family: "Univers-Regular";
+}
+
+.active_nav {
+  color: rgb(201,42,42) !important;
+}
+
+#MOBILE_NAVIGATION, #MOBILE_LOGO{
+  display: none;
+}
+
+#MOBILE_NAVIGATION .btn.btn-link{
+  color: rgb(20,43,88);
+}
+
+@media only screen and (max-width: 663px){
+  #NAVIGATION_BAR{
+    display: none
+  }
+
+  #MOBILE_LOGO{
+    width: 30px;
+    margin: 0 auto;
+  }
+
+  #MOBILE_NAVIGATION,#MOBILE_LOGO{
+    display: block;    
+  }
+
+}
+
+#HERO {
+  background-image: url("./team2.jpg");
+  height: 60vh;
+  background-size: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 4em;
+  text-align: center;
+}
+
+#HEROHEADING {
+  color: rgb(201,42,42) !important;
+  font-family: "Univers-Regular";
+}
+
+
+@media only screen and (max-width: 1183px){
+  #HERO {
+    height: 30vh; 
+  }
+
+  #HEROHEADING {
+    font-size: 1.1em;
+  }
+
+  #HERO {
+    padding: 2em;
+  }
+}
+
+@media only screen and (max-width: 397px){
+  #HERO {
+    height: 25vh;
+  }
+}
+
+@media only screen and (max-width: 335px){
+  #HERO {
+    height: 20vh;
+  }
+}
+
+@media only screen and (max-width: 274px){
+  #HERO {
+    height: 15vh;
+  }
+}
+
+.basic-conent-section{
+  padding: 4em;
+  background-color: rgb(255,255,255);
+  font-family: "Univers-Regular";
+}
+
+.basic-conent-section #CONTENTHEADING {
+  color: rgb(20,43,88) !important;
+}
+
+.basic-conent-section img{
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border: thick solid rgb(20,43,88);
+}
+
+@media only screen and (max-width: 434px){
+  .basic-conent-section{
+    padding: 1em;
+  }
+  
+}
+
+#FooterWidget {
+  padding: 2em;
+  background-color: rgb(0,0,0);
+  font-family: "Univers-Regular";
+}
+
+.footer-containers li a{
+  color: rgb(20,43,88) !important;
+}
+
+.footer-containers li{
+  list-style: none;
+}
+
+.footer_about_text{
+  color: rgb(255,255,255) !important;
+}
+
+.footer_about_head{
+  color: rgb(255,255,255) !important;
+}
+
+.footer_developer_text{
+  color: rgb(0,255,255) !important;
+  text-decoration: underline;
+}
+
+
+.footer_developer_head{
+  color: rgb(128,128,128) !important;
+}
+
+.iconText {
+  margin-left: 1em;
+  color: rgb(255,255,255);
+}
+
+#FooterWidget{
+  background-image: url("./boxing2.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+#FooterWidget img{
+  width: 20px;
+}
+
+.footer-containers li a, .footer-containers li a:visited{
+  color: #FFFFFF !important;
+}
+
+.footer_developer_text a:visited, .footer_developer_text a:visited{
+  color:rgb(0,255,255) !important;
+}
+
+</style><body><nav class="navbar" id="NAVIGATION_BAR"><section class="navbar-section"><a class="btn btn-link navlink" href="./index.html">HOME</a><a class="btn btn-link navlink active_nav" href="./about.html">ABOUT</a><a class="btn btn-link navlink" href="./fighters.html">FIGHTERS</a><a class="btn btn-link navlink" href="./events.html">EVENTS</a><a class="btn btn-link navlink" href="./news.html">NEWS</a></section><section class="navbar-center"><img id="LOGO" src="./logo_red.jpg"></img></section><section class="navbar-section"><a class="btn btn-link navlink" href="./licensing.html">LICENSING</a><a class="btn btn-link navlink" href="./courses.html">COURSES</a><a class="btn btn-link navlink" href="./membership.html">MEMBERSHIP</a><a class="btn btn-link navlink" href="./gallery.html">GALLERY</a><a class="btn btn-link navlink" href="./contact.html">CONTACT</a></section></nav><div class="text-center"><img id="MOBILE_LOGO" src="./logo_red.jpg"></img></div><div class="dropdown" id="MOBILE_NAVIGATION"><a class="btn btn-link dropdown-toggle" href="#"><i class="icon icon-menu"></i></a><ul class="menu"><li class="menu-item"><a class="btn btn-link navlink" href="./index.html">HOME</a></li><li class="menu-item"><a class="btn btn-link navlink active_nav" href="./about.html">ABOUT</a></li><li class="menu-item"><a class="btn btn-link navlink" href="./fighters.html">FIGHTERS</a></li><li class="menu-item"><a class="btn btn-link navlink" href="./events.html">EVENTS</a></li><li class="menu-item"><a class="btn btn-link navlink" href="./news.html">NEWS</a></li><li class="menu-item"><a class="btn btn-link navlink" href="./licensing.html">LICENSING</a></li><li class="menu-item"><a class="btn btn-link navlink" href="./courses.html">COURSES</a></li><li class="menu-item"><a class="btn btn-link navlink" href="./membership.html">MEMBERSHIP</a></li><li class="menu-item"><a class="btn btn-link navlink" href="./gallery.html">GALLERY</a></li><li class="menu-item"><a class="btn btn-link navlink" href="./contact.html">CONTACT</a></li></ul></div><section id="HERO"><h3 id="HEROHEADING"></h3></section><section class="basic-conent-section" id="CONTENT_BASIC"><h5 id="CONTENTHEADING">About NPBWCB</h5><div class="columns"><div class="col-6 col-sm-12"><p>To develop, promote and effectively regulate the administration of boxing and wrestling in Namibia.</p><p>Our mission is to be a leading sport code and a distinct boxing and wrestling authority in Namibia</p><p>We believe in serving all out stakeholders at the very best. We are one in and outside the ring.</p><p>We believe that integrity builds trust and a sense of security. Our Board and Team value, honesty, transparency and accountability in all that we do to serve our stakeholders.</p></div><div class="col-1"></div><div class="col-5 col-sm-12"><img class="img-responsive" src="./ring.jpg"></img></div></div></section><section id="FooterWidget"><div class="columns"><div class="col-2 col-sm-12 footer-containers"><ul><li><a href="https://www.facebook.com/boxingandwrestlingboard.na/"><img src="./icons/facebook.png"></img><span class="iconText">Facebook</span></a></li><li><a href="/"><img src="./icons/x.png"></img><span class="iconText">xTwitter</span></a></li><li><a href="/"><img src="./icons/instagram.png"></img><span class="iconText">Instagram</span></a></li><li><a href="/"><img src="./icons/youtube.png"></img><span class="iconText">Youtube</span></a></li></ul></div><div class="col-2 col-sm-12 footer-containers"><ul><li><a href="./about.html">ABOUT</a></li><li><a href="./news.html">NEWS</a></li><li><a href="./events">EVENTS</a></li><li><a href="./rankings">RANKINGS</a></li></ul></div><div class="col-6 col-sm-12 footer-containers"><h4 class="footer_about_head">Namibia Professional Boxing and Wrestling Control Board</h4><p class="footer_about_text">To develop, promote and effectively regulate the administration of boxing and wrestling in Namibia.</p></div><div class="col-2 col-sm-12 footer-containers"><h6 class="footer_developer_head">website designed (c) 2025 by</h6><a class="footer_developer_text" href="https://x.com/kwatafana">Kwatafana Systems</a></div></div></section></body><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script></head>
