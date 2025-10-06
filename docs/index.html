@@ -1,170 +1,224 @@
 <!DOCTYPE html>
-<html lang="">
-    <head>
-	<meta charset="UTF-8" />
-	<title>BizKit Network</title>
-	<meta name="viewport" content="width=device-width,initial-scale=1" />
-	<meta name="description" content="" />
-	<link rel="icon" href="favicon.png">
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-	      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-	      crossorigin=""/>
-	<link rel="stylesheet" href="css/vendor/spectre.min.css">
-	<link rel="stylesheet" href="css/vendor/spectre-exp.min.css">
-	<link rel="stylesheet" href="css/vendor/spectre-icons.min.css">
-	</style>
-    </head>
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bizkit Network | Web Design & Branding for SMEs</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons for professional visuals -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-     @font-face {
-	 font-family: 'Univers-Regular';
-	 src: URL('fonts/UniversRegular.ttf') format('truetype');
-     }
-     body{
-	 padding: 2em;
-	 font-family: "Univers-Regular";
-	 color: #FFFFFF;
-	 background-image: linear-gradient(to top, #4fb576 0%, #44c489 30%, #28a9ae 46%, #28a2b7 59%, #4c7788 71%, #6c4f63 86%, #432c39 100%);
-     }
+        /* Configure Tailwind to use Inter font for legibility and neutrality */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-     p, h1, h6, h3, li, h4, a {
-	 opacity: .8;
-     }
+        :root {
+            --color-primary: #000000; /* Strict Black for text/lines */
+            --color-accent: #1e3a8a; /* Deep Blue as the only accent color */
+            --color-background: #ffffff; /* Stark White background */
+        }
 
-     #LOGO{
-	 width: 80px;
-	 border-radius: 50%;
-	 margin-bottom: 2em;
-     }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-background);
+            color: var(--color-primary);
+        }
 
-     .logo{
-	 width: 90%;
-	 text-align: center;
-     }
+        /* Swiss Design: High Contrast Header */
+        .header-bg {
+            background-color: var(--color-accent);
+            border-bottom: 4px solid var(--color-primary); /* Emphasize structure */
+        }
 
-     .hero {
-	 background-image: url("img/bg.jpg");
-	 border-radius: 7px !important;
-	 margin-bottom: 20px;
-	 background-repeat: no-repeat;
-	 background-position: center top;
-	 background-size: 100%;
-     }
+        /* Swiss Design: Sharp, High-Contrast Button */
+        .btn-primary {
+            background-color: var(--color-accent);
+            border: 2px solid var(--color-primary);
+            color: white;
+            transition: background-color 0.3s, opacity 0.1s;
+            box-shadow: 4px 4px 0px 0px var(--color-primary); /* Offset shadow for 2D, structural effect */
+        }
+        .btn-primary:hover {
+            background-color: #1d4ed8; /* Slightly lighter blue on hover */
+            box-shadow: 2px 2px 0px 0px var(--color-primary); /* Reduced offset for 'press' effect */
+        }
 
-     .sme{
-	 padding: 1em;
-	 margin-right: 2px;
-	 margin-bottom: 4px;
-     }
+        /* Utility class for primary text color */
+        .text-accent {
+            color: var(--color-accent);
+        }
 
-     .dark{
-	 font-weight: bold;
-	 font-size: 20px;
-	 padding: 5px;
-     }
+        /* Remove all default rounding for a strict, objective aesthetic */
+        .sharp-edge {
+            border-radius: 0 !important;
+        }
 
-     footer{
-	 margin-top: 5em;
-	 left: 0;
-	 padding: 2px;
-	 text-align: center;
-
-     }
-
-     .btn{
-	 margin: 0 auto;
-	 background-image: linear-gradient(to top, #4fb576 0%, #44c489 30%, #28a9ae 46%, #28a2b7 59%, #4c7788 71%, #6c4f63 86%, #432c39 100%) !important;
-	 border: none;
-     }
-
-     a {
-	 color: #ffffff;
-	 text-decoration: underline;
-     }
+        /* Utility class for border color */
+        .border-primary {
+            border-color: var(--color-primary);
+        }
     </style>
-    <body>
-	<header class="navbar">
-	    <section class="navbar-section"></section>
-	    <section class="navbar-center">
-		<img src="img/logo.png" id="LOGO">
-	    </section>
-	    <section class="navbar-section"></section>
-	</header>
-	<h1 class="text-center">BizKit <b>Network</b></h1>
-	<div class="hero">
-	    <div class="hero-body"></div>
-	</div>
-	<p class="light">
-	    Like it or not, the internet is now an integral part of
-	    society. This is not surprising, it gives us magical
-	    abilities and connects everyone (and things)
-	    in “real time”.
-	</p>
+</head>
+<body>
 
-	<div class="container" id="ICONS">
-	    <div class="columns">
-		<div class="column col-3 col-mx-auto iconsContainers">
-		    <img src="img/icons/email.png">
-		    <h6>Private Email</h6>
-		</div>
-		<div class="column col-3 col-mx-auto iconsContainers">
-		    <img src="img/icons/internet.png">
-		    <h6>Website Design</h6>
-		</div>
-		<div class="column col-3 col-mx-auto iconsContainers">
-		    <img src="img/icons/shape.png">
-		    <h6>Company Branding</h6>
-		</div>
-	    </div>
-	</div>
+    <!-- Header / Navigation (Simple, structural) -->
+    <header class="header-bg text-white shadow-none sharp-edge">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center border-b border-gray-700">
+            <div class="text-2xl font-black tracking-widest uppercase">
+                <span class="text-white">BIZKIT.</span><span class="text-gray-300 font-light">NETWORK</span>
+            </div>
+            <!-- Simple CTA in Header for large screens -->
+            <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-4 py-2 border-2 border-white text-sm font-bold uppercase text-white bg-transparent hover:bg-white hover:text-accent transition duration-150 ease-in-out sharp-edge">
+                Get Started
+            </a>
+        </div>
+    </header>
 
+    <!-- Hero Section (Focus on strong typographic hierarchy) -->
+    <main>
+        <section class="py-20 md:py-32 text-center bg-white shadow-none">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-5xl sm:text-6xl lg:text-8xl font-black mb-6 leading-none text-accent">
+                    PRESENCE.
+                </h1>
+                <h2 class="text-xl sm:text-2xl lg:text-3xl font-light mb-8 max-w-3xl mx-auto text-gray-800">
+                    The Essential Digital Package for <span class="font-black text-primary">SMEs</span>.
+                </h2>
+                <p class="text-base sm:text-lg font-normal mb-10 max-w-2xl mx-auto text-gray-500">
+                    We deliver the required components—website, private email, and company branding—allowing you to maintain focus on core business operations.
+                </p>
+                <a href="#package" class="btn-primary inline-flex items-center justify-center px-8 py-4 text-base font-bold uppercase sharp-edge">
+                    View Package & Pricing
+                    <i data-lucide="arrow-right" class="ml-3 w-5 h-5"></i>
+                </a>
+            </div>
+        </section>
 
-	<p class="dark">
-	    Small and Mid-size Enterprises (SMEs) today can tap into
-	    the magic of the internet, giving their business new
-	    abilities that make them stand out to customers and
-	    enhance their day-to-day operations.
-	</p>
+        <!-- Services/Package Section (Strict grid alignment) -->
+        <section id="package" class="py-16 bg-gray-50 border-t border-b border-primary sharp-edge">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-12 border-b-2 border-accent inline-block pb-2">
+                    <h2 class="text-2xl sm:text-3xl font-black text-primary uppercase">
+                        Service Matrix
+                    </h2>
+                </div>
 
-	<h3>Included In The BizKit Package:</h3>
-	<ul>
-	    <li>Customized email addresses with the SME’s domain name.</li>
-	    <li>A complete dynamic full-stack website, tailored made</li>
-	    <li>Dashboard App</li>
-	    <li>Digital Marketing </li>
-	    <li>Cybersecurity</li>
-	    <li>Analytics</li>
-	</ul>
-	<br>
-	<h4>Websites We Designed:</h4>
-	<div class="container">
-	    <div class="columns">
-		<div class="column col-2 col-sm-12 text-center sme">
-		    <img src="img/sme/tilahil.png" class="logo">
-		    <a href="https://tilahiltrading.com/">TILAHIL TRADING CC</a>
-		</div>
+                <!-- Service Cards Grid - High contrast, sharp edges -->
+                <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-primary border-t border-b border-primary sharp-edge">
 
-		<div class="column col-2 col-sm-12 text-center sme">
-		    <img src="img/sme/uncharted.jpeg" class="logo">
-		    <a href="https://uncharted-safaris.tours/">UNCHARTED TOURS & SAFARIS</a>
-		</div>
+                    <!-- Service 1: Website -->
+                    <div class="bg-white p-6 md:p-10 shadow-none hover:bg-gray-100 transition duration-300 sharp-edge">
+                        <div class="flex items-center justify-start w-12 h-12 text-accent mb-4">
+                            <i data-lucide="monitor" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-lg font-black text-primary mb-3 uppercase">
+                            01. Responsive Website
+                        </h3>
+                        <p class="text-gray-700 text-sm leading-relaxed">
+                            Structured, high-speed web presence optimized for all viewport sizes. A clear, objective digital storefront aligned with modern web standards.
+                        </p>
+                    </div>
 
-		<div class="column col-2 col-sm-12 text-center sme">
-		    <img src="img/sme/npwcb.jpg" class="logo">
-		    <a href="demo/boxing/index.html">NPBWCB</a>
-		</div>
+                    <!-- Service 2: Private Email -->
+                    <div class="bg-white p-6 md:p-10 shadow-none hover:bg-gray-100 transition duration-300 sharp-edge">
+                        <div class="flex items-center justify-start w-12 h-12 text-accent mb-4">
+                            <i data-lucide="at-sign" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-lg font-black text-primary mb-3 uppercase">
+                            02. Secure Private Email
+                        </h3>
+                        <p class="text-gray-700 text-sm leading-relaxed">
+                            Professional email infrastructure tied to your domain. Essential for building credibility and maintaining formal business communication channels.
+                        </p>
+                    </div>
 
-		<div class="column col-2 col-sm-12 text-center sme">
-		    <img src="img/sme/fabrice.png" class="logo">
-		    <a href="demo/fabrice/index.html">Fabrice Music</a>
-		</div>
-	    </div>
-	</div>
-	<br>
-	<footer>
-	    <a href="https://www.facebook.com/profile.php?id=61568078046172">Facebook</a> |
-	    <a href="https://www.instagram.com/bizkitapp/">Instagram</a> |
-	    <a href="mailto:info@bizkit.network">Email</a>
-	</footer>
-    </body>
+                    <!-- Service 3: Company Branding -->
+                    <div class="bg-white p-6 md:p-10 shadow-none hover:bg-gray-100 transition duration-300 sharp-edge">
+                        <div class="flex items-center justify-start w-12 h-12 text-accent mb-4">
+                            <i data-lucide="ruler" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-lg font-black text-primary mb-3 uppercase">
+                            03. Foundational Branding
+                        </h3>
+                        <p class="text-gray-700 text-sm leading-relaxed">
+                            Definition of core visual identity assets (Logo, typography, palette). Ensures systematic and consistent visual representation across all platforms.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section (Minimalist and direct) -->
+        <section class="py-16 md:py-20 bg-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="border-l-4 border-accent pl-6">
+                    <h2 class="text-2xl sm:text-3xl font-black text-primary mb-4 uppercase">
+                        Initiate Project
+                    </h2>
+                    <p class="text-xl text-gray-700 mb-8">
+                        A unified digital strategy is paramount for operational efficiency. Contact us to define the scope of your required business tools.
+                    </p>
+                    <a href="#contact" class="btn-primary inline-flex items-center justify-center px-10 py-4 text-base font-bold uppercase sharp-edge">
+                        <i data-lucide="chevron-right" class="mr-3 w-5 h-5"></i>
+                        Begin Consultation
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer / Contact Info (Grid-based, structured) -->
+    <footer id="contact" class="bg-gray-900 text-white py-12 sharp-edge">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+
+                <!-- Branding -->
+                <div>
+                    <div class="text-2xl font-black tracking-widest uppercase mb-2">
+                        <span class="text-white">BIZKIT.</span><span class="text-gray-400 font-light">NETWORK</span>
+                    </div>
+                    <p class="text-sm text-gray-500">
+                        Design and strategy, rigorously applied.
+                    </p>
+                </div>
+
+                <!-- Contact Details (Explicit alignment) -->
+                <div>
+                    <h4 class="text-base font-black uppercase text-accent mb-3">Contact Information</h4>
+
+                    <p class="text-gray-300 flex items-center justify-center md:justify-start mb-2">
+                        <i data-lucide="globe" class="w-4 h-4 mr-2 text-white"></i>
+                        <a href="https://www.bizkit.network" class="hover:text-white transition font-mono">www.bizkit.network</a>
+                    </p>
+                    <p class="text-gray-300 flex items-center justify-center md:justify-start">
+                        <i data-lucide="mail" class="w-4 h-4 mr-2 text-white"></i>
+                        <a href="mailto:info@bizkit.network" class="hover:text-white transition font-mono">info@bizkit.network</a>
+                    </p>
+                </div>
+
+                <!-- Legal/Structure Links -->
+                <div>
+                    <h4 class="text-base font-black uppercase text-accent mb-3">Structure</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#package" class="hover:text-white transition">Service Matrix</a></li>
+                        <li><a href="#" class="hover:text-white transition">Terms of Use</a></li>
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="mt-10 pt-6 border-t border-gray-700 text-center text-sm text-gray-500">
+                <span class="font-bold">2025</span> &copy; BIZKIT NETWORK. ALL RIGHTS RESERVED.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
 </html>
