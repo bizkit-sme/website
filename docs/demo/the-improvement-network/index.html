@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>The Improvement Network Trust (TINT) - Positive Change in Namibia</title>
+	<style>
+         /* CSS RESET & VARIABLES */
+         :root {
+             --primary-color: rgb(112, 193, 116);
+             --dark-color: #2c3e50;
+             --light-color: #ecf0f1;
+             --font-family: 'Arial', sans-serif;
+         }
+
+         * {
+             margin: 0;
+             padding: 0;
+             box-sizing: border-box;
+         }
+
+         body {
+             font-family: var(--font-family);
+             line-height: 1.6;
+             color: var(--dark-color);
+             background-color: #fff;
+             overflow-x: hidden;
+         }
+
+         /* HEADER & NAVIGATION */
+         header {
+             background: #FFFFFF;
+             color: var(--dark-color);
+             padding: 1rem 5%;
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             position: sticky;
+             top: 0;
+             z-index: 1000;
+             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+         }
+
+         .logo {
+             font-size: 1.8rem;
+             font-weight: bold;
+             color: var(--primary-color);
+         }
+
+	 #LOGO{
+	     width: 150px;
+	 }
+
+         .nav-links {
+             display: flex;
+             list-style: none;
+         }
+
+         .nav-links li a {
+             color: var(--dark-color);
+             text-decoration: none;
+             padding: 0.5rem 1rem;
+             transition: color 0.3s;
+         }
+
+         .nav-links li a:hover {
+             color: var(--primary-color);
+         }
+
+         /* Hamburger menu for mobile */
+         .menu-toggle {
+             display: none;
+             font-size: 2rem;
+             cursor: pointer;
+             color: var(--primary-color);
+         }
+
+         /* HERO SECTION */
+         #hero {
+             background: url("cover.png");
+             background-size: cover;
+             background-position: center;
+             height: 100vh;
+             display: flex;
+             flex-direction: column;
+             justify-content: center;
+             align-items: center;
+             text-align: center;
+             color: var(--light-color);
+             padding: 0 5%;
+         }
+
+         .hero-content {
+             max-width: 900px;
+         }
+
+         .hero-content h1 {
+             font-size: 3rem;
+             margin-bottom: 1rem;
+             text-transform: uppercase;
+	     text-shadow: 1px 1px 1px #000000;
+         }
+
+         .hero-content p {
+             font-size: 1.5rem;
+             margin-bottom: 2rem;
+             font-weight: 300;
+	     text-shadow: 1px 1px 1px #000000;
+         }
+
+         .cta-button {
+             background: var(--primary-color);
+             color: var(--dark-color);
+             padding: 0.8rem 2rem;
+             text-decoration: none;
+             font-weight: bold;
+             border-radius: 50px;
+             transition: transform 0.3s, opacity 0.3s;
+             display: inline-block;
+             text-transform: uppercase;
+             letter-spacing: 1px;
+         }
+
+         .cta-button:hover {
+             transform: translateY(-3px) scale(1.05);
+             opacity: 0.9;
+         }
+
+         /* SECTION STYLING */
+         section {
+             padding: 5rem 5%;
+         }
+
+         .section-heading {
+             text-align: center;
+             font-size: 2.5rem;
+             margin-bottom: 3rem;
+             color: var(--primary-color);
+         }
+
+         /* ABOUT US (MISSION) SECTION */
+         #about {
+             background-color: var(--light-color);
+         }
+
+         .about-grid {
+             display: grid;
+             grid-template-columns: 1fr 1fr;
+             gap: 3rem;
+             align-items: center;
+         }
+
+         .about-text {
+             max-width: 600px;
+             margin: 0 auto;
+         }
+
+         .about-text h3 {
+             font-size: 2rem;
+             margin-bottom: 1rem;
+             color: var(--dark-color);
+         }
+
+         .about-text p {
+             margin-bottom: 1.5rem;
+             font-size: 1.1rem;
+         }
+
+         /* CSS Animation for the Mission Statement */
+         .mission-highlight {
+             font-weight: bold;
+             color: var(--primary-color);
+             display: inline-block;
+             animation: pulse-grow 2s infinite alternate;
+         }
+
+         @keyframes pulse-grow {
+             0% {
+                 transform: scale(1);
+                 opacity: 0.8;
+             }
+             100% {
+                 transform: scale(1.05);
+                 opacity: 1;
+             }
+         }
+
+         .about-image {
+             text-align: center;
+         }
+
+         .about-image img {
+             max-width: 100%;
+             height: auto;
+             border-radius: 10px;
+             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+         }
+
+         /* IMPACT SECTION (HOW WE ACHIEVE IT) */
+         #impact {
+             background-color: #fff;
+	     background-image: url("3.jpg");
+	     background-position: center center;
+	     background-attachment: fixed;
+         }
+
+         .impact-cards {
+             display: flex;
+             gap: 2rem;
+             justify-content: center;
+             flex-wrap: wrap;
+         }
+
+         .card {
+             background: #fff;
+             padding: 2rem;
+             border-radius: 10px;
+             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+             max-width: 300px;
+             text-align: center;
+             border-top: 5px solid var(--primary-color);
+             transition: transform 0.3s;
+         }
+
+         .card:hover {
+             transform: translateY(-5px);
+             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+         }
+
+         .card i {
+             font-size: 3rem;
+             color: var(--primary-color);
+             margin-bottom: 1rem;
+         }
+
+         .card h4 {
+             font-size: 1.5rem;
+             margin-bottom: 0.7rem;
+             color: var(--dark-color);
+         }
+
+         /* FOOTER */
+         footer {
+             background: var(--dark-color);
+             color: var(--light-color);
+             text-align: center;
+             padding: 2rem 5%;
+             font-size: 0.9rem;
+         }
+
+         footer p {
+             margin-bottom: 0.5rem;
+         }
+
+         footer a {
+             color: var(--primary-color);
+             text-decoration: none;
+         }
+
+         /* RESPONSIVE DESIGN (Media Queries) */
+         @media (max-width: 992px) {
+             .about-grid {
+                 grid-template-columns: 1fr;
+             }
+
+             .about-image {
+                 order: -1; /* Image above text on smaller screens */
+                 margin-bottom: 2rem;
+             }
+         }
+
+         @media (max-width: 768px) {
+             /* Mobile Navigation */
+             .nav-links {
+                 display: none;
+                 flex-direction: column;
+                 width: 100%;
+                 position: absolute;
+                 top: 60px; /* Adjust based on header height */
+                 left: 0;
+                 background: var(--dark-color);
+                 box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+             }
+
+             .nav-links.active {
+                 display: flex;
+             }
+
+             .nav-links li {
+                 text-align: center;
+                 padding: 1rem 0;
+                 border-top: 1px solid rgba(255, 255, 255, 0.1);
+             }
+
+             .menu-toggle {
+                 display: block;
+             }
+
+             /* Hero Section */
+             .hero-content h1 {
+                 font-size: 2.5rem;
+             }
+
+             .hero-content p {
+                 font-size: 1.2rem;
+             }
+
+             /* Section Styling */
+             section {
+                 padding: 3rem 5%;
+             }
+
+             .section-heading {
+                 font-size: 2rem;
+             }
+         }
+
+         @media (max-width: 480px) {
+             .hero-content h1 {
+                 font-size: 2rem;
+             }
+         }
+	</style>
+    </head>
+    <body>
+
+	<header>
+            <div class="logo"><img src="logo.png" id="LOGO"></div>
+            <nav>
+		<ul class="nav-links" id="navMenu">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About TINT</a></li>
+                    <li><a href="#impact">Our Work</a></li>
+                    <li><a href="#contact">Contact</a></li>
+		</ul>
+            </nav>
+            <div class="menu-toggle" id="menuToggle">&#9776;</div>
+	</header>
+
+	<section id="hero">
+            <div class="hero-content">
+		<h1>Driving Positive Change in Namibia 🇳🇦</h1>
+		<p>The Improvement Network Trust (TINT) is committed to elevating <b>Education</b> and fostering <b>Ethical Leadership</b> across all sectors.</p>
+		<a href="#about" class="cta-button">Discover Our Mission</a>
+            </div>
+	</section>
+
+	<hr>
+
+	<section id="about">
+            <h2 class="section-heading">Our Mandate</h2>
+            <div class="about-grid">
+		<div class="about-text">
+                    <h3>Committed to Namibian Development</h3>
+                    <p>The Improvement Network Trust (TINT) is a legally registered body under the <b>Trust Administration Act, 2023</b>, dedicated to societal betterment.</p>
+                    <p>We tirelessly strive to bring about positive change and improvements in <b>education</b> and <b>ethical leadership</b> across sectors in Namibia. This is our core commitment to a brighter future.</p>
+                    <p>
+			Our mission is to effect <span class="mission-highlight">positive societal change that culminates in improved outcomes for underserved Namibians.</span>
+                    </p>
+                    <a href="#contact" class="cta-button" style="background: var(--dark-color); color: var(--primary-color);">Get Involved Today</a>
+		</div>
+		<div class="about-image">
+                    <img src="2.jpg" alt="Professionals collaborating around a table">
+		</div>
+            </div>
+	</section>
+
+	<hr>
+
+	<section id="impact">
+            <h2 class="section-heading" style="color: #ffffff">How We Achieve Positive Change</h2>
+            <div class="impact-cards">
+		<div class="card">
+                    <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">
+			<img src="badge.png">
+		    </div>
+                    <h4>Professional Collaboration</h4>
+                    <p>We mobilise professionals from diverse fields to contribute their expertise and drive meaningful progress.</p>
+		</div>
+
+		<div class="card">
+                    <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">
+			<img src="global-network.png">
+		    </div>
+                    <h4>Global & National Networking</h4>
+                    <p>We network and partner with like-minded individuals, and national and international bodies for impactful synergies.</p>
+		</div>
+
+		<div class="card">
+                    <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">
+			<img src="speedometer.png">
+		    </div>
+                    <h4>Measurable Improvements</h4>
+                    <p>Our focus is on tangible, improved outcomes, particularly for underserved communities in Namibia.</p>
+		</div>
+            </div>
+	</section>
+
+	<hr>
+
+	<section id="contact">
+            <h2 class="section-heading">Connect With TINT</h2>
+            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+		<p style="font-size: 1.2rem; margin-bottom: 2rem;">Ready to be part of the change? Whether you want to partner, volunteer, or learn more, we'd love to hear from you.</p>
+		<a href="mailto:info@tint.org.na" class="cta-button">Email Us</a>
+		<a href="tel:+26481xxxxxxx" class="cta-button" style="background: var(--light-color); color: var(--dark-color); margin-left: 1rem;">Call Us</a>
+            </div>
+	</section>
+
+	<footer>
+            <p>&copy; <span id="currentYear"></span> The Improvement Network Trust (TINT). All Rights Reserved.</p>
+            <p>Registered under the Trust Administration Act, 2023.</p>
+	</footer>
+
+	<script>
+         document.addEventListener('DOMContentLoaded', () => {
+             // 1. Mobile Menu Toggle
+             const menuToggle = document.getElementById('menuToggle');
+             const navMenu = document.getElementById('navMenu');
+
+             menuToggle.addEventListener('click', () => {
+                 navMenu.classList.toggle('active');
+             });
+
+             // Close menu when a link is clicked (for mobile usability)
+             const navLinks = navMenu.querySelectorAll('a');
+             navLinks.forEach(link => {
+                 link.addEventListener('click', () => {
+                     if (navMenu.classList.contains('active')) {
+                         navMenu.classList.remove('active');
+                     }
+                 });
+             });
+
+             // 2. Dynamic Copyright Year
+             const currentYearElement = document.getElementById('currentYear');
+             currentYearElement.textContent = new Date().getFullYear();
+
+             // 3. Simple Scroll Animation (Optional but enhances vibrancy)
+             const observer = new IntersectionObserver((entries) => {
+                 entries.forEach(entry => {
+                     if (entry.isIntersecting) {
+                         entry.target.style.opacity = '1';
+                         entry.target.style.transform = 'translateY(0)';
+                         observer.unobserve(entry.target);
+                     }
+                 });
+             }, {
+                 threshold: 0.1 // Trigger when 10% of the element is visible
+             });
+
+             // Apply initial hidden state and observer to sections for the animation
+             document.querySelectorAll('section:not(#hero)').forEach(section => {
+                 section.style.opacity = '0';
+                 section.style.transform = 'translateY(20px)';
+                 section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                 observer.observe(section);
+             });
+         });
+	</script>
+
+    </body>
+</html>
