@@ -75,6 +75,22 @@
 	 #quote{
 	     background-image: url("1.jpeg");
 	 }
+
+	 .redglow{
+	     background: #ED213A;  /* fallback for old browsers */
+	     background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
+	     background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	     color: silver;
+	 }
+
+	 .redglow p {
+	     color: silver;
+	 }
+
+	 .blackglow{
+	     background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
+	     background-blend-mode: multiply,multiply;
+	 }
 	</style>
     </head>
     <body>
@@ -150,22 +166,26 @@
 				1. Core Electrical Services
                             </h3>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-				<div class="service-card p-6 border-2 border-gray-200 transition bg-gray-50 hover:bg-white rounded-lg">
+				<div class="blackglow service-card p-6 border-2 border-gray-200 transition bg-gray-50 hover:bg-white rounded-lg">
                                     <i data-lucide="factory" class="w-8 h-8 text-primary mb-3"></i>
                                     <h4 class="font-bold mb-1">Installation</h4>
                                     <p class="text-sm text-gray-600">Residential, Commercial, and Industrial electrical installation.</p>
 				</div>
-				<div class="service-card p-6 border-2 border-gray-200 transition bg-gray-50 hover:bg-white rounded-lg">
+				<div class="redglow service-card p-6 border-2 border-gray-200 transition bg-gray-50 hover:bg-white rounded-lg"
+				style="background: background: #ED213A;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+">
                                     <i data-lucide="bolt" class="w-8 h-8 text-primary mb-3"></i>
                                     <h4 class="font-bold mb-1">Wiring</h4>
                                     <p class="text-sm text-gray-600">Complete house wiring and re-wiring services.</p>
 				</div>
-				<div class="service-card p-6 border-2 border-gray-200 transition bg-gray-50 hover:bg-white rounded-lg">
+				<div class="redglow service-card p-6 border-2 border-gray-200 transition bg-gray-50 hover:bg-white rounded-lg">
                                     <i data-lucide="wrench" class="w-8 h-8 text-primary mb-3"></i>
                                     <h4 class="font-bold mb-1">Maintenance</h4>
                                     <p class="text-sm text-gray-600">Repair and maintenance of all electrical equipment.</p>
 				</div>
-				<div class="service-card p-6 border-2 border-gray-200 transition bg-gray-50 hover:bg-white rounded-lg">
+				<div class="blackglow service-card p-6 border-2 border-gray-200 transition bg-gray-50 hover:bg-white rounded-lg">
                                     <i data-lucide="building-2" class="w-8 h-8 text-primary mb-3"></i>
                                     <h4 class="font-bold mb-1">Compliance Checks</h4>
                                     <p class="text-sm text-gray-600">Ensuring all installations meet safety standards.</p>
