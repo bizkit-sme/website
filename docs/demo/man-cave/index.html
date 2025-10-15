@@ -80,16 +80,28 @@
 	     background: #ED213A;  /* fallback for old browsers */
 	     background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
 	     background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	     color: silver;
+	     color: #ffffff;
 	 }
 
 	 .redglow p {
 	     color: silver;
 	 }
 
-	 .blackglow{
+	 .silverglow{
 	     background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
 	     background-blend-mode: multiply,multiply;
+	     color: #ffffff;
+	 }
+
+	 .blackglow{
+	     color: #ffffff;
+	     background: #000000;  /* fallback for old browsers */
+	     background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+	     background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	 }
+
+	 .blackglow p{
+	     color: silver;
 	 }
 	</style>
     </head>
@@ -166,7 +178,7 @@
 				1. Core Electrical Services
                             </h3>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-				<div class="blackglow service-card p-6 border-2 border-gray-200 transition bg-gray-50 hover:bg-white rounded-lg">
+				<div class="redglow service-card p-6 border-2 border-gray-200 transition bg-gray-50 hover:bg-white rounded-lg">
                                     <i data-lucide="factory" class="w-8 h-8 text-primary mb-3"></i>
                                     <h4 class="font-bold mb-1">Installation</h4>
                                     <p class="text-sm text-gray-600">Residential, Commercial, and Industrial electrical installation.</p>
@@ -185,7 +197,7 @@ background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, F
                                     <h4 class="font-bold mb-1">Maintenance</h4>
                                     <p class="text-sm text-gray-600">Repair and maintenance of all electrical equipment.</p>
 				</div>
-				<div class="blackglow service-card p-6 border-2 border-gray-200 transition bg-gray-50 hover:bg-white rounded-lg">
+				<div class="redglow service-card p-6 border-2 border-gray-200 transition bg-gray-50 hover:bg-white rounded-lg">
                                     <i data-lucide="building-2" class="w-8 h-8 text-primary mb-3"></i>
                                     <h4 class="font-bold mb-1">Compliance Checks</h4>
                                     <p class="text-sm text-gray-600">Ensuring all installations meet safety standards.</p>
@@ -200,27 +212,27 @@ background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, F
 				2. Solar Energy Solutions
                             </h3>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-				<div class="service-card p-6 border-2 border-primary transition bg-secondary bg-opacity-10 hover:bg-secondary/20 rounded-lg">
+				<div class="silverglow service-card p-6 border-2 border-primary transition bg-secondary bg-opacity-10 hover:bg-secondary/20 rounded-lg">
                                     <i data-lucide="solar-panel" class="w-8 h-8 text-primary mb-3"></i>
                                     <h4 class="font-bold mb-1">Hybrid Systems</h4>
                                     <p class="text-sm text-gray-700">Installation of grid-tied systems with battery backup.</p>
 				</div>
-				<div class="service-card p-6 border-2 border-primary transition bg-secondary bg-opacity-10 hover:bg-secondary/20 rounded-lg">
+				<div class="silverglow service-card p-6 border-2 border-primary transition bg-secondary bg-opacity-10 hover:bg-secondary/20 rounded-lg">
                                     <i data-lucide="battery-charging" class="w-8 h-8 text-primary mb-3"></i>
                                     <h4 class="font-bold mb-1">Off-Grid Systems</h4>
                                     <p class="text-sm text-gray-700">Total energy independence for remote locations.</p>
 				</div>
-				<div class="service-card p-6 border-2 border-primary transition bg-secondary bg-opacity-10 hover:bg-secondary/20 rounded-lg">
+				<div class="silverglow service-card p-6 border-2 border-primary transition bg-secondary bg-opacity-10 hover:bg-secondary/20 rounded-lg">
                                     <i data-lucide="gauge" class="w-8 h-8 text-primary mb-3"></i>
                                     <h4 class="font-bold mb-1">Solar Geyser</h4>
                                     <p class="text-sm text-gray-700">Energy-efficient water heating solutions.</p>
 				</div>
-				<div class="service-card p-6 border-2 border-primary transition bg-secondary bg-opacity-10 hover:bg-secondary/20 rounded-lg">
+				<div class="silverglow service-card p-6 border-2 border-primary transition bg-secondary bg-opacity-10 hover:bg-secondary/20 rounded-lg">
                                     <i data-lucide="pump-kin" class="w-8 h-8 text-primary mb-3"></i>
                                     <h4 class="font-bold mb-1">Solar Water Pump</h4>
                                     <p class="text-sm text-gray-700">Reliable water supply for agricultural and residential needs.</p>
 				</div>
-				<div class="service-card p-6 border-2 border-primary transition bg-secondary bg-opacity-10 hover:bg-secondary/20 rounded-lg">
+				<div class="silverglow service-card p-6 border-2 border-primary transition bg-secondary bg-opacity-10 hover:bg-secondary/20 rounded-lg">
                                     <i data-lucide="lightbulb" class="w-8 h-8 text-primary mb-3"></i>
                                     <h4 class="font-bold mb-1">Solar Street Light</h4>
                                     <p class="text-sm text-gray-700">Autonomous lighting solutions for commercial areas.</p>
@@ -235,22 +247,22 @@ background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, F
 				3. Backup, Security & Automation
                             </h3>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-				<div class="service-card p-6 border-2 border-gray-200 transition bg-gray-50 hover:bg-white rounded-lg">
+				<div class="blackglow service-card p-6 border-2 border-gray-200 transition bg-gray-50 hover:bg-white rounded-lg">
                                     <i data-lucide="battery" class="w-8 h-8 text-primary mb-3"></i>
                                     <h4 class="font-bold mb-1">Backup Power</h4>
                                     <p class="text-sm text-gray-600">Solar backup and traditional Generator backup systems.</p>
 				</div>
-				<div class="service-card p-6 border-2 border-gray-200 transition bg-gray-50 hover:bg-white rounded-lg">
+				<div class="blackglow service-card p-6 border-2 border-gray-200 transition bg-gray-50 hover:bg-white rounded-lg">
                                     <i data-lucide="cctv" class="w-8 h-8 text-primary mb-3"></i>
                                     <h4 class="font-bold mb-1">Surveillance</h4>
                                     <p class="text-sm text-gray-600">CCTV and Alarm system installation.</p>
 				</div>
-				<div class="service-card p-6 border-2 border-gray-200 transition bg-gray-50 hover:bg-white rounded-lg">
+				<div class="blackglow service-card p-6 border-2 border-gray-200 transition bg-gray-50 hover:bg-white rounded-lg">
                                     <i data-lucide="fence" class="w-8 h-8 text-primary mb-3"></i>
                                     <h4 class="font-bold mb-1">Perimeter Security</h4>
                                     <p class="text-sm text-gray-600">High-security electrical fencing solutions.</p>
 				</div>
-				<div class="service-card p-6 border-2 border-gray-200 transition bg-gray-50 hover:bg-white rounded-lg">
+				<div class="blackglow service-card p-6 border-2 border-gray-200 transition bg-gray-50 hover:bg-white rounded-lg">
                                     <i data-lucide="car" class="w-8 h-8 text-primary mb-3"></i>
                                     <h4 class="font-bold mb-1">Gate Automation</h4>
                                     <p class="text-sm text-gray-600">Gate motor installation and reliable servicing.</p>
