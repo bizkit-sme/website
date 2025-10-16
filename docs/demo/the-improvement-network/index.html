@@ -4,459 +4,589 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>The Improvement Network Trust (TINT)</title>
+	<!-- Load Tailwind CSS -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 	<style>
-         /* CSS RESET & VARIABLES */
+         /* --- Artistic Theme Colors: Ascend Emerald Palette --- */
          :root {
-             --primary-color: rgb(112, 193, 116);
-             --dark-color: #2c3e50;
-             --light-color: #ecf0f1;
-             --font-family: 'Arial', sans-serif;
-         }
-
-         * {
-             margin: 0;
-             padding: 0;
-             box-sizing: border-box;
+             --color-base: #E6E6FA;
+             --color-text: #EAF4F4; /* Crisp Off-White */
+             --color-primary-accent: #a4cd15; /* Vibrant Green */
+             --color-secondary: #545F66; /* Muted Blue-Gray */
+             --color-card-bg: #FBFAF2; /* Slightly lighter blue-charcoal for card contrast */
          }
 
          body {
-             font-family: var(--font-family);
-             line-height: 1.6;
-             color: var(--dark-color);
-             background-color: #fff;
-             overflow-x: hidden;
+             background-color: var(--color-base);
+             color: var(--color-text);
+             font-family: 'Inter', sans-serif;
+             scroll-behavior: smooth;
          }
 
-         /* HEADER & NAVIGATION */
-         header {
-             background: #FFFFFF;
-             color: var(--dark-color);
-             padding: 1rem 5%;
-             display: flex;
-             justify-content: space-between;
-             align-items: center;
-             position: sticky;
+         /* Use Lora for dramatic headings */
+         .heading-serif {
+             font-family: 'Lora', serif;
+         }
+
+         /* --- Scroll Animation Classes --- */
+         .animate-scroll {
+             opacity: 0;
+             transform: translateY(30px);
+             transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+             will-change: opacity, transform;
+         }
+
+         .animate-scroll.is-visible {
+             opacity: 1;
+             transform: translateY(0);
+         }
+
+         /* --- Hero Section: Dynamic Geometric Background --- */
+         .hero-background-dynamic {
+             position: absolute;
              top: 0;
-             z-index: 1000;
-             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+             left: 0;
+             width: 100%;
+             height: 100%;
+             overflow: hidden;
+             z-index: -1;
+             /* Updated background gradient */
+             background: linear-gradient(145deg, var(--color-base) 10%, #1a283c 90%);
          }
 
-         .logo {
-             font-size: 1.8rem;
-             font-weight: bold;
-             color: var(--primary-color);
+         /* Subtle Grid Overlay for data/tech aesthetic */
+         .hero-background-dynamic::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             /* Subtle grid pattern */
+             background-image: linear-gradient(to right, #1A283C 1px, transparent 1px),
+             linear-gradient(to bottom, #1A283C 1px, transparent 1px);
+             background-size: 50px 50px; /* Size of the grid cells */
+             opacity: 0.1; /* Very subtle */
+             pointer-events: none;
          }
 
-	 #LOGO{
-	     width: 150px;
-	 }
-
-         .nav-links {
-             display: flex;
-             list-style: none;
+         /* Canvas will be injected here by Three.js */
+         #hero-background-canvas {
+             display: block;
+             width: 100%;
+             height: 100%;
          }
 
-         .nav-links li a {
-             color: var(--dark-color);
-             text-decoration: none;
-             padding: 0.5rem 1rem;
-             transition: color 0.3s;
-         }
-
-         .nav-links li a:hover {
-             color: var(--primary-color);
-         }
-
-         /* Hamburger menu for mobile */
-         .menu-toggle {
-             display: none;
-             font-size: 2rem;
-             cursor: pointer;
-             color: var(--primary-color);
-         }
-
-         /* HERO SECTION */
-         #hero {
-             background: url("cover.png");
-             background-size: cover;
-             background-position: center;
-             height: 100vh;
-             display: flex;
-             flex-direction: column;
-             justify-content: center;
-             align-items: center;
-             text-align: center;
-             color: var(--light-color);
-             padding: 0 5%;
-         }
-
-         .hero-content {
-             max-width: 900px;
-         }
-
-         .hero-content h1 {
-             font-size: 3rem;
-             margin-bottom: 1rem;
-             text-transform: uppercase;
-	     text-shadow: 1px 1px 1px #000000;
-         }
-
-         .hero-content p {
-             font-size: 1.5rem;
-             margin-bottom: 2rem;
-             font-weight: 300;
-	     text-shadow: 1px 1px 1px #000000;
-         }
-
+         /* --- CTA Button & Hover Effect --- */
          .cta-button {
-             background: var(--primary-color);
-             color: var(--dark-color);
-             padding: 0.8rem 2rem;
-             text-decoration: none;
-             font-weight: bold;
-             border-radius: 50px;
-             transition: transform 0.3s, opacity 0.3s;
-             display: inline-block;
-             text-transform: uppercase;
-             letter-spacing: 1px;
+             transition: all 0.3s ease-in-out;
+             border: 1px solid transparent;
          }
 
          .cta-button:hover {
-             transform: translateY(-3px) scale(1.05);
-             opacity: 0.9;
+             background-color: transparent;
+             color: var(--color-primary-accent);
+             border-color: var(--color-primary-accent);
+             transform: translateY(-2px);
+             /* Updated box shadow to match new accent color */
+             box-shadow: 0 8px 25px rgba(112, 193, 116, 0.4);
          }
 
-         /* SECTION STYLING */
-         section {
-             padding: 5rem 5%;
+         /* --- Service Card Hover Effect --- */
+         .service-card {
+             background-color: var(--color-card-bg);
+             transition: all 0.4s ease-in-out;
+             border: 1px solid var(--color-secondary);
          }
 
-         .section-heading {
-             text-align: center;
-             font-size: 2.5rem;
-             margin-bottom: 3rem;
-             color: var(--primary-color);
-         }
-
-         /* ABOUT US (MISSION) SECTION */
-         #about {
-             background-color: var(--light-color);
-         }
-
-         .about-grid {
-             display: grid;
-             grid-template-columns: 1fr 1fr;
-             gap: 3rem;
-             align-items: center;
-         }
-
-         .about-text {
-             max-width: 600px;
-             margin: 0 auto;
-         }
-
-         .about-text h3 {
-             font-size: 2rem;
-             margin-bottom: 1rem;
-             color: var(--dark-color);
-         }
-
-         .about-text p {
-             margin-bottom: 1.5rem;
-             font-size: 1.1rem;
-         }
-
-         /* CSS Animation for the Mission Statement */
-         .mission-highlight {
-             font-weight: bold;
-             color: var(--primary-color);
-             display: inline-block;
-             animation: pulse-grow 2s infinite alternate;
-         }
-
-         @keyframes pulse-grow {
-             0% {
-                 transform: scale(1);
-                 opacity: 0.8;
-             }
-             100% {
-                 transform: scale(1.05);
-                 opacity: 1;
-             }
-         }
-
-         .about-image {
-             text-align: center;
-         }
-
-         .about-image img {
-             max-width: 100%;
-             height: auto;
-             border-radius: 10px;
-             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-         }
-
-         /* IMPACT SECTION (HOW WE ACHIEVE IT) */
-         #impact {
-             background-color: #fff;
-	     background-image: url("3.jpg");
-	     background-position: center center;
-	     background-attachment: fixed;
-         }
-
-         .impact-cards {
-             display: flex;
-             gap: 2rem;
-             justify-content: center;
-             flex-wrap: wrap;
-         }
-
-         .card {
-             background: #fff;
-             padding: 2rem;
-             border-radius: 10px;
-             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-             max-width: 300px;
-             text-align: center;
-             border-top: 5px solid var(--primary-color);
-             transition: transform 0.3s;
-         }
-
-         .card:hover {
+         .service-card:hover {
+             border-color: var(--color-primary-accent);
+             background-color: var(--color-base);
              transform: translateY(-5px);
-             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
          }
 
-         .card i {
-             font-size: 3rem;
-             color: var(--primary-color);
-             margin-bottom: 1rem;
-         }
+	 #LOGO{
+	     position: absolute;
+	     height: 30px;
+	 }
 
-         .card h4 {
-             font-size: 1.5rem;
-             margin-bottom: 0.7rem;
-             color: var(--dark-color);
-         }
+	 #LOGO_TEXT{
+	     color: var(--color-primary-accent);
+	     position: relative;
+	     font-size: 11px;
+	     left: 7vw;
+	     font-family: 'Lora', serif;
+	 }
 
-         /* FOOTER */
-         footer {
-             background: var(--dark-color);
-             color: var(--light-color);
-             text-align: center;
-             padding: 2rem 5%;
-             font-size: 0.9rem;
-         }
+	 #hero-background-dynamic{
+	     background-image: url('cover.jpg');
+	     background-size: 100%;
+	     background-repeat: no-repeat;
+	 }
 
-         footer p {
-             margin-bottom: 0.5rem;
-         }
+	 #MENU_ICON{
+	     color: var(--color-primary-accent);
+	 }
 
-         footer a {
-             color: var(--primary-color);
-             text-decoration: none;
-         }
+	 header{
+	     background: #ffffff;
+	 }
 
-         /* RESPONSIVE DESIGN (Media Queries) */
-         @media (max-width: 992px) {
-             .about-grid {
-                 grid-template-columns: 1fr;
-             }
+	 #philosophy{
+	     background-image: url("geo.jpg");
+	     background-size: 100% 100%;
+	     background-attachment: fixed;
+	     background-repeat: no-repeat;
+	 }
 
-             .about-image {
-                 order: -1; /* Image above text on smaller screens */
-                 margin-bottom: 2rem;
-             }
-         }
+	 .quote, .shadow{
+	     text-shadow: 1px 1px 1px #333;
+	 }
 
-         @media (max-width: 768px) {
-             /* Mobile Navigation */
-             .nav-links {
-                 display: none;
-                 flex-direction: column;
-                 width: 100%;
-                 position: absolute;
-                 top: 60px; /* Adjust based on header height */
-                 left: 0;
-                 background: var(--dark-color);
-                 box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
-             }
+	 #contact{
+	     background-image: url("geo.jpg");
+	     background-size: 100%;
+	     background-position: center bottom;
+	     background-repeat: no-repeat;
+	 }
 
-             .nav-links.active {
-                 display: flex;
-             }
-
-             .nav-links li {
-                 text-align: center;
-                 padding: 1rem 0;
-                 border-top: 1px solid rgba(255, 255, 255, 0.1);
-             }
-
-             .menu-toggle {
-                 display: block;
-             }
-
-             /* Hero Section */
-             .hero-content h1 {
-                 font-size: 2.5rem;
-             }
-
-             .hero-content p {
-                 font-size: 1.2rem;
-             }
-
-             /* Section Styling */
-             section {
-                 padding: 3rem 5%;
-             }
-
-             .section-heading {
-                 font-size: 2rem;
-             }
-         }
-
-         @media (max-width: 480px) {
-             .hero-content h1 {
-                 font-size: 2rem;
-             }
-         }
+	 footer{
+	     margin-top: 0 !important;
+	 }
 	</style>
     </head>
-    <body>
+    <body class="antialiased">
 
-	<header>
-            <div class="logo"><img src="logo.png" id="LOGO"></div>
-            <nav>
-		<ul class="nav-links" id="navMenu">
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#about">About TINT</a></li>
-                    <li><a href="#impact">Our Work</a></li>
-                    <li><a href="#contact">Contact</a></li>
-		</ul>
-            </nav>
-            <div class="menu-toggle" id="menuToggle">&#9776;</div>
+	<!-- Header & Navigation -->
+	<header class="sticky top-0 z-50 bg-opacity-90 backdrop-blur-md p-4 border-b border-[--color-secondary] shadow-2xl">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+		<a href="#" class="text-3xl font-bold tracking-wider text-[--color-primary-accent] heading-serif">
+		    <img src="logo.png" id="LOGO">
+		    <h1 id="LOGO_TEXT">THE IMPROVEMENT NETWORK TRUST</h1>
+		</a>
+
+		<!-- Mobile Nav Toggle -->
+		<button id="nav-toggle" class="p-2 rounded-lg hover:bg-gray-400 focus:outline-none" aria-label="Toggle Navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="MENU_ICON" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+		</button>
+
+		<!-- Full-Screen Overlay Nav (Initially Hidden) -->
+		<nav id="full-nav" class="fixed inset-0 bg-[--color-base] z-50 flex flex-col justify-center items-center transition-opacity duration-500 ease-in-out opacity-0 pointer-events-none">
+                    <button id="nav-close" class="absolute top-8 right-8 p-4 text-[--color-primary-accent] hover:text-[--color-text] focus:outline-none">
+			<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                    </button>
+                    <div class="space-y-10 text-center">
+			<a href="#expertise" class="text-6xl heading-serif text-[--color-text] hover:text-[--color-primary-accent] block transition duration-300">Expertise</a>
+			<a href="#philosophy" class="text-6xl heading-serif text-[--color-text] hover:text-[--color-primary-accent] block transition duration-300">Philosophy</a>
+			<a href="#team" class="text-6xl heading-serif text-[--color-text] hover:text-[--color-primary-accent] block transition duration-300">Team</a>
+			<a href="#contact" class="text-6xl heading-serif text-[--color-text] hover:text-[--color-primary-accent] block transition duration-300">Connect</a>
+                    </div>
+		</nav>
+            </div>
 	</header>
 
-	<section id="hero">
-            <div class="hero-content">
-		<h1>Driving Positive Change in Namibia 🇳🇦</h1>
-		<p>The Improvement Network Trust (TINT) is committed to elevating <b>Education</b> and fostering <b>Ethical Leadership</b> across all sectors.</p>
-		<a href="#about" class="cta-button">Discover Our Mission</a>
-            </div>
-	</section>
+	<main>
+            <!-- 1. Hero Section: Dramatic Statement with Animated Background and Grid -->
+            <section id="hero" class="relative min-h-screen flex items-center justify-center text-center p-8 overflow-hidden">
 
-	<hr>
+		<!-- Container for the Three.js Canvas -->
+		<div id="hero-background-dynamic" class="hero-background-dynamic">
+                    <!-- The Three.js canvas will be added here via JavaScript -->
+		</div>
 
-	<section id="about">
-            <h2 class="section-heading">Our Mandate</h2>
-            <div class="about-grid">
-		<div class="about-text">
-                    <h3>Committed to Namibian Development</h3>
-                    <p>The Improvement Network Trust (TINT) is a legally registered body under the <b>Trust Administration Act, 2023</b>, dedicated to societal betterment.</p>
-                    <p>We tirelessly strive to bring about positive change and improvements in <b>education</b> and <b>ethical leadership</b> across sectors in Namibia. This is our core commitment to a brighter future.</p>
-                    <p>
-			Our mission is to effect <span class="mission-highlight">positive societal change that culminates in improved outcomes for underserved Namibians.</span>
+		<div class="max-w-4xl z-10 animate-scroll">
+                    <p class="text-[--color-primary-accent] text-lg mb-4 tracking-widest uppercase">The Depth of Insight</p>
+                    <p class="mt-8 text-xl md:text-2xl text-[--color-primary-accent] max-w-3xl mx-auto">
+			We distill complexity into clear, actionable strategies, enabling market leaders to redefine their frontiers.
                     </p>
-                    <a href="#contact" class="cta-button" style="background: var(--dark-color); color: var(--primary-color);">Get Involved Today</a>
+                    <a href="#expertise" class="mt-16 inline-block px-12 py-5 rounded-full font-bold cta-button bg-[--color-primary-accent] text-[--color-base] shadow-2xl text-lg">
+			Explore Our Expertise
+                    </a>
 		</div>
-		<div class="about-image">
-                    <img src="2.jpg" alt="Professionals collaborating around a table">
+            </section>
+
+            <!-- 2. Services / Expertise Section: Enhanced Card Design -->
+            <section id="expertise" class="py-24 md:py-32 mx-auto px-6 bg-[--color-primary-accent]">
+		<div class="max-w-4xl mx-auto text-center mb-16">
+                    <p class="text-lg text-white animate-scroll">CORE CAPABILITIES</p>
+                    <h2 class="text-4xl md:text-6xl heading-serif mt-2 animate-scroll" style="transition-delay: 0.2s;">Structured Solutions</h2>
+		</div>
+
+		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service 1: Corporate Strategy -->
+                    <div class="service-card p-10 rounded-2xl shadow-xl animate-scroll">
+			<div class="mb-6 text-[--color-primary-accent]">
+                            <!-- SVG Icon: Corporate Strategy / Architect -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="3" width="7" height="7"/><path d="M14 7h7"/></svg>
+			</div>
+			<h3 class="text-3xl font-semibold mb-3 heading-serif text-[--color-primary-accent]">Corporate Strategy</h3>
+			<p class="text-lg text-[--color-secondary]">
+                            Defining long-term vision, market entry, and portfolio optimization to secure future profitability. We plan the foundation for growth.
+			</p>
+			<a href="#" class="mt-4 text-[--color-primary-accent] inline-block font-medium hover:tracking-wide transition-all">View Case Studies →</a>
+                    </div>
+
+                    <!-- Service 2: Digital Transformation -->
+                    <div class="service-card p-10 rounded-2xl shadow-xl animate-scroll" style="transition-delay: 0.15s;">
+			<div class="mb-6 text-[--color-primary-accent]">
+                            <!-- SVG Icon: Digital Transformation / Code & Gear -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.74 1.74"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+			</div>
+			<h3 class="text-3xl font-semibold mb-3 heading-serif text-[--color-primary-accent]">Digital Transformation</h3>
+			<p class="text-lg text-[--color-secondary]">
+                            Modernizing operations, integrating AI, and driving innovation to build scalable, resilient platforms for the next decade.
+			</p>
+			<a href="#" class="mt-4 text-[--color-primary-accent] inline-block font-medium hover:tracking-wide transition-all">View Case Studies →</a>
+                    </div>
+
+                    <!-- Service 3: Operational Efficiency -->
+                    <div class="service-card p-10 rounded-2xl shadow-xl animate-scroll" style="transition-delay: 0.3s;">
+			<div class="mb-6 text-[--color-primary-accent]">
+                            <!-- SVG Icon: Operational Efficiency / Precision -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+			</div>
+			<h3 class="text-3xl font-semibold mb-3 heading-serif text-[--color-primary-accent]">Operational Efficiency</h3>
+			<p class="text-lg text-[--color-secondary]">
+                            Streamlining workflows, optimizing supply chains, and maximizing resource allocation for superior, measurable returns.
+			</p>
+			<a href="#" class="mt-4 text-[--color-primary-accent] inline-block font-medium hover:tracking-wide transition-all">View Case Studies →</a>
+                    </div>
+		</div>
+            </section>
+
+            <!-- 3. Philosophy Section: Elegant Quote Block -->
+            <section id="philosophy" class="py-24 md:py-32 bg-[#1a283c] border-y border-[--color-secondary]">
+		<div class="max-w-5xl mx-auto px-6">
+                    <div class="flex flex-col md:flex-row items-start space-y-12 md:space-y-0 md:space-x-16">
+			<!-- Dramatic Quote -->
+			<div class="md:w-2/3 h-full animate-scroll">
+                            <div class="border-l-8 border-[--color-primary-accent] pl-6 md:pl-10">
+				<p class="text-5xl md:text-7xl heading-serif italic leading-tight quote">
+                                    "True strategy is not about predicting the future, but about designing it."
+				</p>
+                            </div>
+			</div>
+
+			<!-- Core Mandate -->
+			<div class="md:w-1/3 animate-scroll" style="transition-delay: 0.2s;">
+                            <p class="text-[--color-primary-accent] text-sm tracking-wider uppercase mb-3 font-semibold">Our Mandate</p>
+                            <h3 class="text-3xl heading-serif text-[--color-text] mb-6">Clarity in Complexity</h3>
+                            <p class="text-base text-white leading-relaxed shadow">
+				We believe that the most powerful solutions emerge from the intersection of rigorous analysis and bold imagination. Our process is designed to cut through noise, delivering strategies that are both intellectually sound and creatively disruptive. We seek the signal in the chaos.
+                            </p>
+			</div>
+                    </div>
+		</div>
+            </section>
+
+            <!-- 4. Team Section (Placeholder added to complete navigation) -->
+            <section id="team" class="py-24 max-w-7xl mx-auto px-6 text-center">
+		<div class="max-w-4xl mx-auto mb-16">
+                    <p class="text-lg text-[--color-secondary] animate-scroll">LATEST</p>
+                    <h2 class="text-4xl text-[--color-primary-accent] md:text-6xl heading-serif mt-2 animate-scroll" style="transition-delay: 0.2s;">
+			News & Opinions
+		    </h2>
+		</div>
+
+		<div class="grid md:grid-cols-3 gap-10">
+                    <!-- Partner 1 -->
+                    <div class="animate-scroll p-4" style="transition-delay: 0s;">
+			<!-- Placeholder Image - Use high-contrast B&W images in production -->
+			<div class="w-full h-64 bg-gray-700 rounded-lg mb-4 opacity-75 hover:opacity-100 transition-opacity duration-300 mx-auto" style="background-image: url('s2.jpg'); background-size: cover;"></div>
+			<h3 class="text-xl font-bold heading-serif text-[--color-primary-accent]">A Detailed Analysis of the 2024 NSSCO and NSSCAS Examination Results</h3>
+			<p class="text-[--color-secondary]">Reasons why we do not join in the celebrations</p>
+                    </div>
+                    <!-- Partner 2 -->
+                    <div class="animate-scroll p-4" style="transition-delay: 0.2s;">
+			<div class="w-full h-64 bg-gray-700 rounded-lg mb-4 opacity-75 hover:opacity-100 transition-opacity duration-300 mx-auto" style="background-image: url(s.jpg); background-size: cover;"></div>
+			<h3 class="text-xl font-bold heading-serif text-[--color-primary-accent]">Reasons not to celebrate the 2024 NSSCO and NSSCAS examination results</h3>
+			<p class="text-[--color-secondary]">Information regarding learner performance and by extension that of individual subject teachers and schools has been withheld from the public.</p>
+                    </div>
+		</div>
+            </section>
+
+
+            <!-- 5. CTA / Contact Section -->
+            <section id="contact" class="py-24 mx-auto px-6 text-center">
+		<div class="max-w-3xl mx-auto animate-scroll">
+                    <h2 class="text-4xl md:text-6xl heading-serif mb-6">Ready to Define Your Next Ascent?</h2>
+                    <p class="text-xl text-white mb-12">
+			A confidential conversation is the first step toward transformative action. Reach out to schedule a private consultation.
+                    </p>
+                    <a href="mailto:administrator@inetwork.com.na" class="inline-block px-16 py-5 rounded-full font-bold cta-button bg-[--color-primary-accent] text-[--color-base] shadow-2xl text-xl">
+			Begin the Conversation
+                    </a>
+		</div>
+            </section>
+
+	</main>
+
+	<!-- Footer -->
+	<footer class="bg-[--color-base] border-t border-[#1a283c] mt-24 p-10">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+		<div class="mb-4 md:mb-0">
+                    <p class="text-2xl font-bold tracking-wider text-[--color-primary-accent] heading-serif">INET</p>
+                    <p class="text-sm text-[--color-secondary] mt-1">&copy; 2025 The Improvement Network. All rights reserved.</p>
+		</div>
+
+		<div class="flex space-x-8 text-[--color-secondary] text-sm">
+                    <a href="#" class="hover:text-[--color-primary-accent] transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-[--color-primary-accent] transition">Careers</a>
+                    <a href="#" class="hover:text-[--color-primary-accent] transition">Legal</a>
 		</div>
             </div>
-	</section>
-
-	<hr>
-
-	<section id="impact">
-            <h2 class="section-heading" style="color: #ffffff">How We Achieve Positive Change</h2>
-            <div class="impact-cards">
-		<div class="card">
-                    <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">
-			<img src="badge.png">
-		    </div>
-                    <h4>Professional Collaboration</h4>
-                    <p>We mobilise professionals from diverse fields to contribute their expertise and drive meaningful progress.</p>
-		</div>
-
-		<div class="card">
-                    <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">
-			<img src="global-network.png">
-		    </div>
-                    <h4>Global & National Networking</h4>
-                    <p>We network and partner with like-minded individuals, and national and international bodies for impactful synergies.</p>
-		</div>
-
-		<div class="card">
-                    <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">
-			<img src="speedometer.png">
-		    </div>
-                    <h4>Measurable Improvements</h4>
-                    <p>Our focus is on tangible, improved outcomes, particularly for underserved communities in Namibia.</p>
-		</div>
-            </div>
-	</section>
-
-	<hr>
-
-	<section id="contact">
-            <h2 class="section-heading">Connect With TINT</h2>
-            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
-		<p style="font-size: 1.2rem; margin-bottom: 2rem;">Ready to be part of the change? Whether you want to partner, volunteer, or learn more, we'd love to hear from you.</p>
-		<a href="mailto:info@tint.org.na" class="cta-button">Email Us</a>
-		<a href="tel:+26481xxxxxxx" class="cta-button" style="background: var(--light-color); color: var(--dark-color); margin-left: 1rem;">Call Us</a>
-            </div>
-	</section>
-
-	<footer>
-            <p>&copy; <span id="currentYear"></span> The Improvement Network Trust (TINT). All Rights Reserved.</p>
-            <p>Registered under the Trust Administration Act, 2023.</p>
 	</footer>
 
+	<!-- Three.js Library -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
 	<script>
-         document.addEventListener('DOMContentLoaded', () => {
-             // 1. Mobile Menu Toggle
-             const menuToggle = document.getElementById('menuToggle');
-             const navMenu = document.getElementById('navMenu');
+         // --- Navigation JavaScript ---
+         const navToggle = document.getElementById('nav-toggle');
+         const navClose = document.getElementById('nav-close');
+         const fullNav = document.getElementById('full-nav');
 
-             menuToggle.addEventListener('click', () => {
-                 navMenu.classList.toggle('active');
-             });
+         // Open Nav
+         navToggle.addEventListener('click', () => {
+             fullNav.classList.remove('opacity-0', 'pointer-events-none');
+             fullNav.classList.add('opacity-100');
+             document.body.style.overflow = 'hidden'; // Prevent scrolling when nav is open
+         });
 
-             // Close menu when a link is clicked (for mobile usability)
-             const navLinks = navMenu.querySelectorAll('a');
-             navLinks.forEach(link => {
-                 link.addEventListener('click', () => {
-                     if (navMenu.classList.contains('active')) {
-                         navMenu.classList.remove('active');
-                     }
-                 });
-             });
+         // Close Nav (via button or link click)
+         const closeNav = () => {
+             fullNav.classList.remove('opacity-100');
+             fullNav.classList.add('opacity-0', 'pointer-events-none');
+             document.body.style.overflow = ''; // Restore scrolling
+         };
 
-             // 2. Dynamic Copyright Year
-             const currentYearElement = document.getElementById('currentYear');
-             currentYearElement.textContent = new Date().getFullYear();
+         navClose.addEventListener('click', closeNav);
 
-             // 3. Simple Scroll Animation (Optional but enhances vibrancy)
-             const observer = new IntersectionObserver((entries) => {
+         // Close nav when any link inside is clicked
+         fullNav.querySelectorAll('a').forEach(link => {
+             link.addEventListener('click', closeNav);
+         });
+
+
+         // --- Scroll Animation JavaScript (Intersection Observer) ---
+         document.addEventListener("DOMContentLoaded", function() {
+             const elements = document.querySelectorAll('.animate-scroll');
+
+             const observer = new IntersectionObserver((entries, observer) => {
                  entries.forEach(entry => {
+                     // Only apply animation if the element is intersecting (in view)
                      if (entry.isIntersecting) {
-                         entry.target.style.opacity = '1';
-                         entry.target.style.transform = 'translateY(0)';
+                         entry.target.classList.add('is-visible');
+                         // Stop observing once the element has become visible
                          observer.unobserve(entry.target);
                      }
                  });
              }, {
-                 threshold: 0.1 // Trigger when 10% of the element is visible
+                 threshold: 0.1, // Trigger when 10% of the element is visible
+                 rootMargin: '0px 0px -10% 0px' // Adjust trigger point
              });
 
-             // Apply initial hidden state and observer to sections for the animation
-             document.querySelectorAll('section:not(#hero)').forEach(section => {
-                 section.style.opacity = '0';
-                 section.style.transform = 'translateY(20px)';
-                 section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-                 observer.observe(section);
+             elements.forEach(element => {
+                 observer.observe(element);
              });
          });
+
+
+         // --- Three.js Particle Network Hero Animation ---
+
+         window.onload = function () {
+             // Get the container element
+             const container = document.getElementById('hero-background-dynamic');
+
+             let scene, camera, renderer, particles, lines;
+             let particlesData = [];
+
+             // Define colors
+             const ACCENT_COLOR = 0xa4cd15; // #a4cd15
+             const BASE_COLOR = 0x0A111F; // Deepest Navy
+
+             // Setup variables
+             const clock = new THREE.Clock();
+             const particleCount = 150;
+             const radius = 35; // Sphere of movement
+             const maxConnections = particleCount * 2;
+             const maxDistance = 15; // Max distance for line connection
+
+             // Initialization Function
+             function init() {
+                 // 1. Scene Setup
+                 scene = new THREE.Scene();
+
+                 // 2. Camera Setup
+                 camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+                 camera.position.set(0, 0, 50); // Center the camera on the particle cluster
+
+                 // 3. Renderer Setup
+                 renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+                 renderer.setSize(container.clientWidth, container.clientHeight);
+                 renderer.setPixelRatio(window.devicePixelRatio);
+                 renderer.setClearColor(BASE_COLOR, 0);
+                 container.appendChild(renderer.domElement);
+
+                 // 4. Lighting - Minimal lighting for a glow effect
+                 const ambientLight = new THREE.AmbientLight(ACCENT_COLOR, 0.5);
+                 scene.add(ambientLight);
+
+                 // 5. Geometry (Particles)
+                 const pointsGeometry = new THREE.BufferGeometry();
+                 const positions = new Float32Array(particleCount * 3);
+
+                 // Initialize particle positions and velocity data
+                 for (let i = 0; i < particleCount; i++) {
+                     // Random positions within the sphere radius
+                     const x = Math.random() * radius * 2 - radius;
+                     const y = Math.random() * radius * 2 - radius;
+                     const z = Math.random() * radius * 2 - radius;
+
+                     positions[i * 3] = x;
+                     positions[i * 3 + 1] = y;
+                     positions[i * 3 + 2] = z;
+
+                     particlesData.push({
+                         // Subtle, random velocity
+                         velocity: new THREE.Vector3(
+                             (Math.random() - 0.5) * 0.02,
+                             (Math.random() - 0.5) * 0.02,
+                             (Math.random() - 0.5) * 0.02
+                         ),
+                         position: new THREE.Vector3(x, y, z)
+                     });
+                 }
+
+                 pointsGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+                 // Material for the points - giving them a slight glow
+                 const pointsMaterial = new THREE.PointsMaterial({
+                     color: ACCENT_COLOR,
+                     size: 0.8,
+                     sizeAttenuation: true
+                 });
+
+                 particles = new THREE.Points(pointsGeometry, pointsMaterial);
+                 scene.add(particles);
+
+                 // 6. Geometry (Lines/Connections)
+                 const linePositions = new Float32Array(maxConnections * 3 * 2); // Two points per line
+                 const lineColors = new Float32Array(maxConnections * 3 * 2);
+
+                 const lineGeometry = new THREE.BufferGeometry();
+                 lineGeometry.setAttribute('position', new THREE.BufferAttribute(linePositions, 3).setUsage(THREE.DynamicDrawUsage));
+                 lineGeometry.setAttribute('color', new THREE.BufferAttribute(lineColors, 3).setUsage(THREE.DynamicDrawUsage));
+
+                 // Material for the lines - using vertex colors for fading effect
+                 const lineMaterial = new THREE.LineBasicMaterial({
+                     vertexColors: true,
+                     blending: THREE.AdditiveBlending,
+                     transparent: true
+                 });
+
+                 lines = new THREE.LineSegments(lineGeometry, lineMaterial);
+                 scene.add(lines);
+
+                 // 7. Event Listeners
+                 window.addEventListener('resize', onWindowResize, false);
+
+                 // Start animation loop
+                 animate();
+             }
+
+             // Handles resizing of the browser window
+             function onWindowResize() {
+                 camera.aspect = container.clientWidth / container.clientHeight;
+                 camera.updateProjectionMatrix();
+                 renderer.setSize(container.clientWidth, container.clientHeight);
+             }
+
+             // Animation Loop
+             function animate() {
+                 requestAnimationFrame(animate);
+
+                 // Get array references
+                 const positions = particles.geometry.attributes.position.array;
+                 const linePositions = lines.geometry.attributes.position.array;
+                 const lineColors = lines.geometry.attributes.color.array;
+                 let lineIndex = 0;
+
+                 // Hex to RGB conversion for line color calculation
+                 const r = ((ACCENT_COLOR >> 16) & 255) / 255;
+                 const g = ((ACCENT_COLOR >> 8) & 255) / 255;
+                 const b = (ACCENT_COLOR & 255) / 255;
+
+                 // 1. Update Particle Positions and Check Boundaries
+                 for (let i = 0; i < particleCount; i++) {
+                     const data = particlesData[i];
+
+                     data.position.add(data.velocity);
+
+                     // Keep particles within the sphere boundary (bounce)
+                     if (data.position.length() > radius) {
+                         data.velocity.negate();
+                         data.position.normalize().multiplyScalar(radius * 0.99);
+                     }
+
+                     positions[i * 3] = data.position.x;
+                     positions[i * 3 + 1] = data.position.y;
+                     positions[i * 3 + 2] = data.position.z;
+                 }
+
+                 // 2. Update Lines (Connections)
+                 for (let i = 0; i < particleCount; i++) {
+                     const p1 = particlesData[i].position;
+
+                     for (let j = i + 1; j < particleCount; j++) {
+                         const p2 = particlesData[j].position;
+                         const distance = p1.distanceTo(p2);
+
+                         if (distance < maxDistance) {
+                             // Connection exists: calculate opacity (alpha) based on distance
+                             const alpha = 1.0 - (distance / maxDistance);
+
+                             // Line Segment Point 1
+                             linePositions[lineIndex * 6 + 0] = p1.x;
+                             linePositions[lineIndex * 6 + 1] = p1.y;
+                             linePositions[lineIndex * 6 + 2] = p1.z;
+                             lineColors[lineIndex * 6 + 0] = r;
+                             lineColors[lineIndex * 6 + 1] = g;
+                             lineColors[lineIndex * 6 + 2] = b;
+
+                             // Line Segment Point 2
+                             linePositions[lineIndex * 6 + 3] = p2.x;
+                             linePositions[lineIndex * 6 + 4] = p2.y;
+                             linePositions[lineIndex * 6 + 5] = p2.z;
+                             lineColors[lineIndex * 6 + 3] = r;
+                             lineColors[lineIndex * 6 + 4] = g;
+                             lineColors[lineIndex * 6 + 5] = b;
+
+                             // Set opacity for the line segment
+                             lines.geometry.attributes.color.setUsage(THREE.DynamicDrawUsage);
+                             lines.material.opacity = alpha;
+
+                             lineIndex++;
+                         }
+                     }
+                 }
+
+                 // Clear unused line segments by setting draw range
+                 lines.geometry.setDrawRange(0, lineIndex * 2);
+
+                 // Mark buffers for update
+                 particles.geometry.attributes.position.needsUpdate = true;
+                 lines.geometry.attributes.position.needsUpdate = true;
+                 lines.geometry.attributes.color.needsUpdate = true;
+
+                 renderer.render(scene, camera);
+             }
+
+             // Start the entire Three.js setup when the window is loaded
+             init();
+         };
 	</script>
 
     </body>
