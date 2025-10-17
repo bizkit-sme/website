@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pan Lion Safaris | Experience the Heart of Namibia</title>
+	<!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+	<!-- Load Three.js for WebGL Animation --><script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+	<style>
+	 /* Custom styles to enhance the vibrant safari theme */
+	 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+	 :root {
+	     --color-primary: #D97706; /* Amber/Gold */
+	     --color-secondary: #1F2937; /* Dark Gray */
+	     --color-accent: #F59E0B; /* Deep Orange */
+	     --color-bg: #FEF3C7; /* Pale Yellow/Sand */
+	 }
+	 body {
+	     font-family: 'Inter', sans-serif;
+	     scroll-behavior: smooth;
+	     background-color: var(--color-bg);
+	 }
+	 #hero-canvas {
+	     position: absolute;
+	     top: 0;
+	     left: 0;
+	     width: 100%;
+	     height: 100%;
+	     z-index: 0;
+	 }
+	 .hero-content {
+	     position: relative;
+	     z-index: 10;
+	 }
+	 /* Custom animation classes for professional transitions */
+	 .fade-in-up {
+	     opacity: 0;
+	     transform: translateY(20px);
+	     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+	 }
+	 .animate-visible {
+	     opacity: 1;
+	     transform: translateY(0);
+	 }
+
+
+	 #LOGO{
+	     width: 150px;
+	 }
+	</style>
+    </head>
+    <body class="text-gray-900">
+
+	<!-- Header & Navigation --><header class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm shadow-lg">
+	<nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+	    <a href="#" class="text-2xl font-extrabold text-amber-700 tracking-wider hover:text-amber-600 transition duration-300">
+		<img src="logo.png" id="LOGO">
+	    </a>
+	    <div class="hidden md:flex space-x-8 font-medium">
+		<a href="#about" class="text-gray-600 hover:text-amber-600 transition duration-300">About</a>
+		<a href="#experiences" class="text-gray-600 hover:text-amber-600 transition duration-300">Experiences</a>
+		<a href="#gallery" class="text-gray-600 hover:text-amber-600 transition duration-300">Gallery</a>
+		<a href="#contact" class="px-4 py-2 rounded-full bg-amber-600 text-white font-semibold hover:bg-amber-700 transition duration-300 shadow-xl">Book Now</a>
+	    </div>
+	    <button id="menu-button" class="md:hidden text-gray-600 hover:text-amber-600 focus:outline-none p-1 rounded-md transition duration-300">
+		<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+	    </button>
+	</nav>
+	</header>
+
+	<!-- Mobile Menu (Hidden by default) --><div id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-white z-40 p-6 pt-20 transition-transform duration-300 ease-in-out transform -translate-y-full md:hidden">
+	    <div class="flex flex-col space-y-4 text-lg font-semibold">
+		<a href="#about" class="text-gray-700 hover:text-amber-600 transition duration-300 py-2 border-b border-gray-100" onclick="closeMenu()">About</a>
+		<a href="#experiences" class="text-gray-700 hover:text-amber-600 transition duration-300 py-2 border-b border-gray-100" onclick="closeMenu()">Experiences</a>
+		<a href="#gallery" class="text-gray-700 hover:text-amber-600 transition duration-300 py-2 border-b border-gray-100" onclick="closeMenu()">Gallery</a>
+		<a href="#contact" class="px-4 py-2 rounded-lg bg-amber-600 text-white text-center mt-6 hover:bg-amber-700 transition duration-300 shadow-md" onclick="closeMenu()">Book Now</a>
+	    </div>
+	</div>
+
+	<main>
+	    <!-- Hero Section (WebGL Safari Animation) --><section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden bg-gray-900">
+	    <!-- WebGL Canvas for the Safari Animation --><canvas id="hero-canvas"></canvas>
+
+	    <!-- Hero Content --><div class="hero-content text-center text-white p-6 max-w-4xl">
+	    <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight mb-4 fade-in-up" style="transition-delay: 0.1s;">
+		The Roar of Namibia Awaits.
+	    </h1>
+	    <p class="text-xl sm:text-2xl font-light mb-8 opacity-0 fade-in-up" style="transition-delay: 0.3s;">
+		Unforgettable Safaris. Unparalleled Expertise.
+	    </p>
+	    <a href="#experiences" class="inline-block px-10 py-4 bg-amber-600 text-white font-bold text-xl rounded-full shadow-2xl hover:bg-amber-700 transform hover:scale-105 transition duration-500 ease-in-out fade-in-up" style="transition-delay: 0.5s;">
+		Explore Our Safaris
+	    </a>
+	    </div>
+	    </section>
+
+	    <!-- About Us Section --><section id="about" class="py-24 md:py-40 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		    <div class="grid md:grid-cols-2 gap-16 items-center">
+			<div class="fade-in-up">
+			    <span class="text-base font-semibold uppercase text-amber-600 mb-3 block">Our Heritage & Commitment</span>
+			    <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900 leading-tight">
+				Experience the Heart of the Pan Lion Journey
+			    </h2>
+			    <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+				<b>Pan Lion Safaris</b> is born from a deep, unwavering passion for Namibia's raw, untamed beauty. We are local experts committed to providing deeply personal, sustainable, and truly unforgettable adventures. Our specialization lies in bespoke journeys through the ancient Namib Desert, the wildlife-rich Etosha National Park, and the rugged, mysterious Skeleton Coast.
+			    </p>
+			    <p class="text-gray-700 text-lg leading-relaxed border-l-4 border-amber-600 pl-4">
+				Our name is a pledge: the vast, breathtaking <b>Pan</b> (salt pans) of Etosha, and the majestic <b>Lion</b>, the spirit of the safari. We guide you beyond the tourist trail to witness moments others only dream of.
+			    </p>
+			</div>
+			<div class="relative h-96 rounded-2xl overflow-hidden shadow-2xl fade-in-up" style="transition-delay: 0.2s;">
+			    <img src="sun.jpg"
+				 alt="Namibian Landscape"
+				 class="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+				 onerror="this.onerror=null; this.src='https://placehold.co/800x600/F59E0B/FFFFFF?text=Namib+Dunes+Placeholder'">
+			</div>
+		    </div>
+		</div>
+	    </section>
+
+	    <!-- Experiences Section --><section id="experiences" class="py-24 md:py-40 bg-gray-50 border-t border-gray-100">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+		    <span class="text-base font-semibold uppercase text-amber-600 mb-3 block fade-in-up">Tailored Journeys</span>
+		    <h2 class="text-4xl md:text-5xl font-extrabold mb-16 text-gray-900 fade-in-up" style="transition-delay: 0.1s;">
+			Our Signature Safari Experiences
+		    </h2>
+		    <div class="grid md:grid-cols-3 gap-10">
+			<!-- Card 1: Etosha Wildlife --><div class="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-[1.03] transition duration-500 fade-in-up" style="transition-delay: 0.2s;">
+			<img src="safari.jpg" alt="Etosha Wildlife Safari" class="w-full h-56 object-cover">
+			<div class="p-8">
+			    <h3 class="text-2xl font-bold mb-3 text-amber-700">Etosha Wildlife Spectacle</h3>
+			    <p class="text-gray-600 mb-6">A focused tour around the massive salt pan, famous for the incredible concentration of black rhinos, elephants, and lions at the waterholes.</p>
+			    <a href="#contact" class="text-amber-600 font-bold hover:text-amber-800 transition text-lg flex items-center justify-center">Discover <span class="ml-2 text-xl">&rarr;</span></a>
+			</div>
+			</div>
+
+			<!-- Card 2: Namib Desert --><div class="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-[1.03] transition duration-500 fade-in-up" style="transition-delay: 0.3s;">
+			    <img src="dune.jpg" alt="Sossusvlei Desert Exploration" class="w-full h-56 object-cover">
+			    <div class="p-8">
+				<h3 class="text-2xl font-bold mb-3 text-amber-700">Sossusvlei Dunes Adventure</h3>
+				<p class="text-gray-600 mb-6">A photographer's dream. Climb the world's tallest sand dunes and witness the iconic Dead Vlei's petrified trees at sunrise.</p>
+				<a href="#contact" class="text-amber-600 font-bold hover:text-amber-800 transition text-lg flex items-center justify-center">Discover <span class="ml-2 text-xl">&rarr;</span></a>
+			    </div>
+			</div>
+
+			<!-- Card 3: Skeleton Coast --><div class="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-[1.03] transition duration-500 fade-in-up" style="transition-delay: 0.4s;">
+			    <img src="coast.jpg" alt="Skeleton Coast Expedition" class="w-full h-56 object-cover">
+			    <div class="p-8">
+				<h3 class="text-2xl font-bold mb-3 text-amber-700">Skeleton Coast Expedition</h3>
+				<p class="text-gray-600 mb-6">Explore dramatic shipwrecks, vast gravel plains, and unique desert-adapted wildlife along the Atlantic coast.</p>
+				<a href="#contact" class="text-amber-600 font-bold hover:text-amber-800 transition text-lg flex items-center justify-center">Discover <span class="ml-2 text-xl">&rarr;</span></a>
+			    </div>
+			</div>
+		    </div>
+		</div>
+	    </section>
+
+	    <!-- Gallery/Quote Section --><section id="gallery" class="bg-gray-900 py-24 md:py-32"
+					  style="background-image: url('lion.jpg'); background-size: 100%; background-repeat: no-repeat">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+		    <blockquote class="fade-in-up">
+			<p class="text-3xl sm:text-4xl font-light italic mb-8 leading-snug">
+			    "The most incredible experience of my life. Pan Lion Safaris provided access to landscapes and wildlife I never thought possible. Their guides are truly the best in Namibia."
+			</p>
+			<footer class="font-semibold text-xl text-amber-500">
+			    — Sarah K., Recent Client
+			</footer>
+		    </blockquote>
+		</div>
+	    </section>
+
+	    <!-- Contact Section --><section id="contact" class="py-24 md:py-40 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		    <div class="max-w-3xl mx-auto text-center">
+			<span class="text-base font-semibold uppercase text-amber-600 mb-3 block fade-in-up">Ready to Roar?</span>
+			<h2 class="text-4xl md:text-5xl font-extrabold mb-12 text-gray-900 fade-in-up" style="transition-delay: 0.1s;">
+			    Plan Your Custom Safari
+			</h2>
+			<div class="grid gap-8 md:grid-cols-2 text-left fade-in-up" style="transition-delay: 0.3s;">
+			    <!-- Simple Form --><form onsubmit="handleFormSubmit(event)" class="space-y-6 p-8 bg-gray-50 rounded-2xl shadow-2xl border border-gray-100 h-full">
+			    <div>
+				<input type="text" placeholder="Your Full Name" required class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-amber-500 focus:border-amber-500 transition duration-300 shadow-sm">
+			    </div>
+			    <div>
+				<input type="email" placeholder="Your Email Address" required class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-amber-500 focus:border-amber-500 transition duration-300 shadow-sm">
+			    </div>
+			    <div>
+				<textarea placeholder="Tell us about your dream safari, preferred dates, and group size..." rows="4" required class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-amber-500 focus:border-amber-500 transition duration-300 shadow-sm"></textarea>
+			    </div>
+			    <button type="submit" class="w-full py-4 bg-amber-600 text-white font-bold text-lg rounded-xl hover:bg-amber-700 transition duration-300 transform hover:shadow-2xl">
+				Send Custom Inquiry
+			    </button>
+			    <div id="form-message" class="text-center mt-4 hidden p-3 rounded-lg text-base font-medium"></div>
+			    </form>
+
+			    <!-- Contact Info --><div>
+				<h3 class="text-2xl font-bold text-gray-900 mb-5">Talk to a Safari Specialist</h3>
+				<p class="text-lg text-gray-700 mb-8 leading-relaxed">
+				    Ready to take the first step? Our team is standing by to craft an itinerary as unique as Namibia itself.
+				</p>
+				<ul class="space-y-4 text-gray-700">
+				    <li class="flex items-center space-x-3 text-lg">
+					<svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+					<span class="font-medium">+26481 2777 236 PAN LION</span>
+				    </li>
+				    <li class="flex items-center space-x-3 text-lg">
+					<svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-9 13h9a2 2 0 002-2V7a2 2 0 00-2-2H3a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+					<span class="font-medium">info@panlionsafaris.com</span>
+				    </li>
+				    <li class="flex items-start space-x-3 text-lg">
+					<svg class="w-6 h-6 text-amber-600 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+					<span class="font-medium">Windhoek, Namibia (Head Office)</span>
+				    </li>
+				</ul>
+			    </div>
+			</div>
+		    </div>
+		</div>
+	    </section>
+	</main>
+
+	<!-- Footer --><footer class="bg-gray-900 py-12">
+	    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+		<p class="mb-4 text-lg font-extrabold text-amber-600 tracking-wider">PAN LION SAFARIS</p>
+		<p>&copy; 2024 Pan Lion Safaris. All rights reserved. | Namibia's Premier Tour Guide.</p>
+		<div class="mt-4 text-sm space-x-4">
+		    <a href="#" class="hover:text-amber-600 transition">Privacy Policy</a>
+		    <a href="#" class="hover:text-amber-600 transition">Terms of Service</a>
+		</div>
+	    </div>
+	</footer>
+
+	<script>
+	 // --- 1. WEBGL NAMIBIAN SAFARI ANIMATION (Three.js) ---
+
+	 let scene, camera, renderer, silhouettes = [];
+	 // Increased range for a vast desert look
+	 const Z_RESET = -400;
+	 const Z_SPAWN = 800;
+	 const TRAVEL_SPEED = 0.5;
+	 const HORIZONTAL_RANGE = 500; // Increased width for vastness
+
+	 // Material for all silhouettes and ground (deep, consistent shadow)
+	 const silhouetteColor = 0x1A1005; // Very deep, rich brown for strong silhouette effect
+	 const silhouetteMaterial = new THREE.MeshLambertMaterial({ color: silhouetteColor });
+
+	 // Function to create a stylized Namibian Acacia tree silhouette
+	 function createAcacia(x, z) {
+	     const group = new THREE.Group();
+
+	     // Trunk (slimmer, taller)
+	     const trunkGeo = new THREE.BoxGeometry(1.5, 20 + Math.random() * 10, 1.5);
+	     const trunkMesh = new THREE.Mesh(trunkGeo, silhouetteMaterial);
+	     trunkMesh.position.y = (20 + (Math.random() * 10)) / 2;
+	     group.add(trunkMesh);
+
+	     // Canopy (flat-top pyramid/cone)
+	     const canopyGeo = new THREE.ConeGeometry(8 + Math.random() * 5, 5 + Math.random() * 3, 4);
+	     const canopyMesh = new THREE.Mesh(canopyGeo, silhouetteMaterial);
+	     canopyMesh.position.y = trunkMesh.position.y + trunkGeo.parameters.height / 2 + (canopyGeo.parameters.height / 4);
+	     canopyMesh.rotation.y = Math.random() * Math.PI * 2;
+	     group.add(canopyMesh);
+
+	     group.position.set(x, 0, z);
+	     return group;
+	 }
+
+	 // Function to create an abstract Namibian Dune silhouette
+	 function createDune(x, z, scaleFactor = 1) {
+	     const geo = new THREE.SphereGeometry(30 + Math.random() * 10 * scaleFactor, 32, 32);
+	     const mesh = new THREE.Mesh(geo, silhouetteMaterial);
+
+	     // Exaggerated scaling to create a low, wide, and deep ridge shape
+	     mesh.scale.set(3.0 * scaleFactor + Math.random(), 0.1 * scaleFactor, 5.0 * scaleFactor + Math.random());
+
+	     // Positioned far below the ground line so only the crest is visible
+	     mesh.position.set(x, -10 - (Math.random() * 15), z);
+	     mesh.rotation.y = Math.random() * Math.PI;
+	     return mesh;
+	 }
+
+	 // Function to create subtle wildlife silhouettes (e.g., elephant-like)
+	 function createWildlife(x, z) {
+	     const group = new THREE.Group();
+	     const bodyGeo = new THREE.BoxGeometry(8, 6, 12);
+	     const bodyMesh = new THREE.Mesh(bodyGeo, silhouetteMaterial);
+	     bodyMesh.position.y = 3;
+	     group.add(bodyMesh);
+
+	     const headGeo = new THREE.BoxGeometry(4, 4, 4);
+	     const headMesh = new THREE.Mesh(headGeo, silhouetteMaterial);
+	     headMesh.position.set(0, 8, -5);
+	     group.add(headMesh);
+
+	     group.position.set(x, 0, z);
+	     group.rotation.y = Math.random() * Math.PI * 2;
+	     const scale = 0.5 + Math.random() * 0.5;
+	     group.scale.set(scale, scale, scale);
+	     return group;
+	 }
+
+	 function initThree() {
+	     const container = document.getElementById('hero');
+	     const canvas = document.getElementById('hero-canvas');
+	     const width = container.clientWidth;
+	     const height = container.clientHeight;
+
+	     scene = new THREE.Scene();
+
+	     // Namib Desert Fog: Haze color (Sunset DUST)
+	     const fogColor = 0x8C6F50;
+	     scene.fog = new THREE.Fog(fogColor, 100, Z_SPAWN * 0.9);
+
+	     camera = new THREE.PerspectiveCamera(60, width / height, 1, 1000);
+	     camera.position.set(0, 3, 0);
+	     camera.lookAt(0, 3, Z_RESET);
+
+	     renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+	     renderer.setSize(width, height);
+	     renderer.setPixelRatio(window.devicePixelRatio);
+	     // Background/Clear Color: Deeper Sunset Sky
+	     renderer.setClearColor(0x7C5F40, 1);
+
+	     // Lighting: Mimic the harsh but beautiful desert sun with more definition
+	     // Deeper warm ambient light to tint the shadows
+	     const ambientLight = new THREE.AmbientLight(0x4F3A26, 2.8); // Warmer ambient light
+	     scene.add(ambientLight);
+
+	     // Main 'sun' light - golden color for sunset feel
+	     const directionalLight1 = new THREE.DirectionalLight(0xFFDDAA, 5.5);
+	     directionalLight1.position.set(1, 0.5, 1).normalize();
+	     scene.add(directionalLight1);
+
+	     // Secondary light for subtle fill/variation
+	     const directionalLight2 = new THREE.DirectionalLight(0xC49F7D, 2.0);
+	     directionalLight2.position.set(-0.5, 0.2, -0.5).normalize();
+	     scene.add(directionalLight2);
+
+	     // Ground Plane (Increased size for vastness)
+	     const planeGeo = new THREE.PlaneGeometry(2000, 2000, 10, 10);
+	     const ground = new THREE.Mesh(planeGeo, silhouetteMaterial);
+	     ground.rotation.x = -Math.PI / 2;
+	     ground.position.y = 0;
+	     scene.add(ground);
+
+	     // Populate the scene with initial silhouettes
+	     const numObjects = 50;
+	     for (let i = 0; i < numObjects; i++) {
+		 const z = (i / numObjects) * Z_SPAWN - Z_SPAWN * 0.5;
+		 const x = (Math.random() - 0.5) * HORIZONTAL_RANGE;
+
+		 let object;
+		 const type = Math.random();
+		 if (type < 0.6) {
+		     object = createDune(x, z, Math.random() * 1.5 + 1);
+		 } else if (type < 0.9) {
+		     object = createAcacia(x, z);
+		 } else {
+		     object = createWildlife(x, z);
+		 }
+
+		 const scale = 1 + Math.random() * 0.8;
+		 object.scale.set(scale, scale, scale);
+
+		 silhouettes.push(object);
+		 scene.add(object);
+	     }
+
+	     // Handle window resize
+	     window.addEventListener('resize', onWindowResize, false);
+
+	     // Start the animation loop
+	     animate();
+	 }
+
+	 function onWindowResize() {
+	     const container = document.getElementById('hero');
+	     const width = container.clientWidth;
+	     const height = container.clientHeight;
+
+	     camera.aspect = width / height;
+	     camera.updateProjectionMatrix();
+	     renderer.setSize(width, height);
+	 }
+
+	 function animate() {
+	     requestAnimationFrame(animate);
+
+	     for (const object of silhouettes) {
+		 // Slower movement for distant objects, faster for closer ones
+		 object.position.z += TRAVEL_SPEED * (object.scale.x * 0.5 + 0.5);
+
+		 if (object.position.z > camera.position.z) {
+		     object.position.z = Z_RESET + Math.random() * Z_SPAWN * 0.2;
+		     object.position.x = (Math.random() - 0.5) * HORIZONTAL_RANGE;
+
+		     // Regenerate object type when it resets (new element coming into view)
+		     scene.remove(object);
+		     const type = Math.random();
+		     let newObject;
+		     if (type < 0.6) {
+			 newObject = createDune(object.position.x, object.position.z, Math.random() * 1.5 + 1);
+		     } else if (type < 0.9) {
+			 newObject = createAcacia(object.position.x, object.position.z);
+		     } else {
+			 newObject = createWildlife(object.position.x, object.position.z);
+		     }
+		     newObject.scale.copy(object.scale);
+		     silhouettes[silhouettes.indexOf(object)] = newObject;
+		     scene.add(newObject);
+		 }
+	     }
+
+	     renderer.render(scene, camera);
+	 }
+
+	 // --- 2. VANILLA JAVASCRIPT LOGIC ---
+
+	 // Mobile Menu Toggling
+	 const menuButton = document.getElementById('menu-button');
+	 const mobileMenu = document.getElementById('mobile-menu');
+
+	 function toggleMenu() {
+	     const isHidden = mobileMenu.classList.contains('hidden');
+	     if (isHidden) {
+		 mobileMenu.classList.remove('hidden', '-translate-y-full');
+		 mobileMenu.classList.add('translate-y-0');
+	     } else {
+		 mobileMenu.classList.remove('translate-y-0');
+		 mobileMenu.classList.add('-translate-y-full');
+		 // Hide after transition
+		 setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+	     }
+	 }
+
+	 function closeMenu() {
+	     if (!mobileMenu.classList.contains('hidden')) {
+		 toggleMenu();
+	     }
+	 }
+
+	 menuButton.addEventListener('click', toggleMenu);
+
+	 // Scroll Animation Observer (Responsive Visibility)
+	 const observerOptions = {
+	     root: null,
+	     rootMargin: '0px',
+	     threshold: 0.2
+	 };
+
+	 const observer = new IntersectionObserver((entries, observer) => {
+	     entries.forEach(entry => {
+		 if (entry.isIntersecting) {
+		     entry.target.classList.add('animate-visible');
+		     observer.unobserve(entry.target);
+		 }
+	     });
+	 }, observerOptions);
+
+	 document.querySelectorAll('.fade-in-up').forEach(element => {
+	     observer.observe(element);
+	 });
+
+	 // Form Submission Handler (simulated)
+	 function handleFormSubmit(event) {
+	     event.preventDefault();
+	     const formMessage = document.getElementById('form-message');
+	     const button = event.target.querySelector('button');
+
+	     button.disabled = true;
+	     button.textContent = 'Sending...';
+
+	     setTimeout(() => {
+		 formMessage.classList.remove('hidden', 'bg-red-100', 'text-red-700');
+		 formMessage.classList.add('bg-green-100', 'text-green-700');
+		 formMessage.innerHTML = 'Thank you! Your safari inquiry has been successfully sent. We will be in touch shortly.';
+
+		 event.target.reset();
+		 button.disabled = false;
+		 button.textContent = 'Send Custom Inquiry';
+	     }, 1500);
+
+	     setTimeout(() => {
+		 formMessage.classList.add('hidden');
+	     }, 6500);
+	 }
+
+	 // Initialize Three.js after the window loads
+	 window.onload = function() {
+	     if (typeof THREE !== 'undefined') {
+		 initThree();
+		 document.querySelector('#hero h1').classList.add('animate-visible');
+		 document.querySelector('#hero p').classList.add('animate-visible');
+		 document.querySelector('#hero a').classList.add('animate-visible');
+	     } else {
+		 console.error("Three.js not loaded. WebGL animation will not run.");
+		 document.getElementById('hero').style.backgroundColor = 'var(--color-secondary)';
+		 document.getElementById('hero-canvas').remove();
+	     }
+	     // Ensure any initially visible elements also get their animation class
+	     document.querySelectorAll('.fade-in-up.opacity-0').forEach(element => {
+		 // Check if element is already in viewport, if so, animate immediately
+		 const rect = element.getBoundingClientRect();
+		 if (rect.top < window.innerHeight && rect.bottom >= 0) {
+		     element.classList.add('animate-visible');
+		 }
+	     });
+	 };
+
+	</script>
+    </body>
+</html>
