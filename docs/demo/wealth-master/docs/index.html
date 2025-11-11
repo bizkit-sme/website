@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Wealth Master Business Consortium CC</title>
+	<!-- Load Tailwind CSS -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	<!-- Load Lucide Icons -->
+	<script src="https://unpkg.com/lucide@latest"></script>
+	<style>
+         /* Configure Tailwind to use Inter font and define custom colors */
+         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+         :root {
+             --color-primary: #1f2937; /* Dark Gray / Near Black for Electrical */
+             --color-secondary: #2675ac;
+             --color-accent: #3b82f6; /* Blue for Technology/Trust */
+         }
+
+         body {
+             font-family: 'Inter', sans-serif;
+             background-color: #f9fafb;
+             color: var(--color-primary);
+             scroll-behavior: smooth;
+         }
+
+	 nav a{
+	     color: var(--color-secondary);
+	 }
+
+	 #LOGO{
+	     width: 150px;
+	     border-radius: 8px;
+	     opacity: .9;
+	 }
+
+	 #LOGO_TEXT{
+	     font-size: 12px;
+	 }
+
+	 header{
+	     background: #010100;
+	     background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(38, 117, 172, 1) 100%, rgba(38, 117, 172, 1) 100%);
+	     position: fixed;
+	 }
+
+         .cta-button {
+             background-color: var(--color-secondary);
+             color: #ffffff;
+             font-weight: 800;
+             text-transform: uppercase;
+             border: 3px solid var(--color-primary);
+             box-shadow: 6px 6px 0px 0px var(--color-primary);
+             transition: all 0.2s;
+             cursor: pointer;
+             border-radius: 0.25rem;
+         }
+
+         .cta-button:hover {
+             background-color: var(--color-secondary);
+             box-shadow: 3px 3px 0px 0px var(--color-primary);
+             transform: translateY(3px);
+         }
+
+         .service-card:hover {
+             transform: translateY(-4px);
+             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+         }
+
+         /* Hero Background with Placeholder Image */
+         .hero-bg {
+             background-image: url('cover.png');
+             background-size: cover;
+             background-position: center;
+	     background-attachment: fixed;
+         }
+
+	 .hero-bg p{
+	     background-color: rgba(1, 1, 1, .5);
+	 }
+	 .red{
+	     color: var(--color-secondary);
+	 }
+
+	 .backoverlay{
+	     padding: 1em;
+	 }
+
+	 #INTRO{
+	     color: #2675AC;
+	     font-size: 20px;
+	     font-weight: bold;
+	 }
+
+	 #SUBINTRO{
+	     font-size: 18px;
+	 }
+
+	 #quote{
+	     background: #2675AC;
+	     text-shadow: 1px 1px 1px #000000;
+	     background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(38, 117, 172, 1) 100%, rgba(38, 117, 172, 1) 100%);
+	     background-attachment: fixed;
+	 }
+
+	 .redglow{
+	     background: #2675AC;
+	     background: linear-gradient(90deg, rgba(38, 117, 172, 1) 0%, rgba(0, 0, 0, 1) 100%, rgba(0, 0, 0, 1) 100%);
+	     color: #ffffff;
+	 }
+
+	 .redglow p {
+	     color: silver;
+	 }
+
+	 .silverglow{
+	     background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
+	     background-blend-mode: multiply,multiply;
+	     color: #ffffff;
+	 }
+
+	 .blackglow{
+	     color: #ffffff;
+	     background: #000000;  /* fallback for old browsers */
+	     background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+	     background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	 }
+
+	 .blackglow p{
+	     color: silver;
+	 }
+	</style>
+    </head>
+    <body>
+
+	<!-- Header / Navigation -->
+	<header class="sticky top-0 z-50 shadow-lg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="flex justify-between items-center py-4">
+                    <!-- Logo/Branding -->
+                    <a href="#" class="font-black text-primary uppercase tracking-tight">
+			<img src="logo.jpeg" id="LOGO">
+                    </a>
+                    <!-- Desktop Navigation -->
+                    <nav class="hidden md:flex space-x-8 font-semibold text-gray-700">
+			<a href="#INTRO" class="hover:text-accent py-1 transition">About Us</a>
+			<a href="#MISSION" class="hover:text-accent py-1 transition">Mission & Vision</a>
+			<a href="#SERVICES" class="hover:text-accent py-1 transition">Services</a>
+			<a href="#WHY" class="hover:text-accent py-1 transition">Why Us</a>
+			<a href="#CONTACT" class="hover:text-accent py-1 transition">Contact</a>
+                    </nav>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-button" class="md:hidden text-primary p-2" style="color: #ffffff">
+			<i data-lucide="menu" class="w-7 h-7"></i>
+                    </button>
+		</div>
+            </div>
+
+            <!-- Mobile Menu Dropdown -->
+            <nav id="mobile-menu" class="md:hidden bg-gray-50 border-t border-gray-200 hidden">
+		<div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
+		    <a href="#INTRO" class="w-full text-center py-3 border-b border-gray-200" onclick="toggleMenu()">About Us</a>
+                    <a href="#MISSION" class="w-full text-center py-3 border-b border-gray-200" onclick="toggleMenu()">Mission & Vision</a>
+                    <a href="#SERVICES" class="w-full text-center py-3 border-b border-gray-200" onclick="toggleMenu()">Our Services</a>
+                    <a href="#WHY" class="w-full text-center py-3 border-b border-gray-200" onclick="toggleMenu()">Why Choose Us</a>
+                    <a href="#CONTACT" class="w-full text-center py-3" onclick="toggleMenu()">Contact Us</a>
+		</div>
+            </nav>
+	</header>
+
+	<main>
+
+            <!-- Hero Section -->
+            <section class="hero-bg py-24 md:py-36 text-white shadow-2xl">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-primary bg-opacity-70 p-8 rounded-lg border-secondary">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black mb-4 leading-tight uppercase" style="text-shadow: 1px 1px 1px #000000; opacity: .9">
+			Empowering Water and Mining Solutions
+                    </h1>
+
+                    <a href="#quote" class="redglow cta-button inline-flex items-center justify-center text-xl p-4">
+			Request A Quote
+                    </a>
+		</div>
+            </section>
+
+	    <section id="services" class="py-10 bg-white" style="background-color: #e5e7eb">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		    <p id="INTRO">
+			Established in Windhoek, Wealth Master Business
+			Consortium Cc aims to grow into a leading service provider
+			in the water and mining sectors.
+		    </p>
+		    <br>
+		    <p id="SUBINTRO">
+			Our extensive experience and skilled professionals make us
+			the preferred choice for borehole and mining services across
+			Namibia. We pride ourselves on delivering reliable, eff icient,
+			and cost-effective solutions tailored to the unique needs of
+			our clients.
+		    </p>
+		</div>
+	    </section>
+
+            <!-- Services Grid Section -->
+            <section id="services" class="py-16 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-3xl font-black text-primary mb-12 text-center uppercase border-b-4 border-accent inline-block pb-1">
+			Why Choose Us
+                    </h2>
+
+                    <div class="space-y-16">
+
+			<!-- Category 1: Core Electrical & Wiring -->
+			<div id="core-electrical">
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+				<div class="redglow service-card p-6 border-2 border-gray-200 transition bg-gray-50 hover:bg-white rounded-lg">
+				    <img src="icons/water.png">
+                                    <h4 class="font-bold mb-1">EXPERTISE AND EXPERIENCE</h4>
+                                    <p class="text-sm text-gray-600">With years of experience in the industry,
+					our team has honed its skills and
+					knowledge to deliver top-notch services.
+					Our professionals, f rom engineers and
+					geologists to technicians, bring a wealth
+					of expertise to every project, ensuring
+					precision and excellence.</p>
+				</div>
+				<div class="redglow service-card p-6 border-2 border-gray-200 transition bg-gray-50 hover:bg-white rounded-lg">
+				    <img src="icons/water-cycle.png">
+                                    <h4 class="font-bold mb-1">COMPREHENSIVE SERVICES</h4>
+                                    <p class="text-sm text-gray-600">
+					We offer a wide range of services under
+					one roof, including borehole drilling,
+					development, installation, rehabilitation,
+					pump servicing, and specialized mining
+					services. This comprehensive approach
+					allows us to manage and execute projects
+					of any scale and complexity seamlessly.
+				    </p>
+				</div>
+				<div class="redglow service-card p-6 border-2 border-gray-200 transition bg-gray-50 hover:bg-white rounded-lg">
+                                    <img src="icons/robotics.png">
+                                    <h4 class="font-bold mb-1">ADVANCED TECHNOLOGY</h4>
+                                    <p class="text-sm text-gray-600">
+					We invest in the latest technology and equipment
+					to enhance the eff iciency and quality of our
+					services. Our use of advanced drilling techniques
+					and cutting-edge mining equipment ensures
+					that we deliver reliable and eff icient solutions,
+					meeting the highest industry standards.
+				    </p>
+				</div>
+				<div class="redglow service-card p-6 border-2 border-gray-200 transition bg-gray-50 hover:bg-white rounded-lg">
+                                    <img src="icons/payment.png">
+                                    <h4 class="font-bold mb-1">PROVEN TRACK RECORD</h4>
+                                    <p class="text-sm text-gray-600">
+					Our portfolio of successful projects speaks for
+					itself. We have a proven track record of delivering
+					high-quality results on time and within budget.
+					Our satisf ied clients and numerous completed
+					projects are a testament to our reliability and
+					dedication to excellence.
+				    </p>
+				</div>
+                            </div>
+			</div>
+            </section>
+
+            <!-- Call to Action / Quote Form Section -->
+            <section id="quote" class="py-16 md:py-20 bg-accent text-white border-t-8 border-secondary">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-3xl font-black mb-6 text-center uppercase">
+			Ready to Power Up Your Property?
+                    </h2>
+                    <p class="text-center text-lg mb-10 text-gray-200">
+			Get in touch today for a free assessment and a detailed, non-binding quote for your project.
+                    </p>
+
+                    <form id="quote-form" class="backoverlay space-y-6 p-8 shadow-2xl rounded-lg">
+
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+				<label for="name" class="block text-sm font-medium text-gray-200 mb-1">Your Name</label>
+				<input type="text" id="name" name="name" required
+                                       class="w-full p-3 border border-gray-600 focus:border-secondary focus:ring-secondary rounded-md text-primary">
+                            </div>
+                            <div>
+				<label for="phone" class="block text-sm font-medium text-gray-200 mb-1">Contact Number</label>
+				<input type="tel" id="phone" name="phone" required
+                                       class="w-full p-3 border border-gray-600 focus:border-secondary focus:ring-secondary rounded-md text-primary">
+                            </div>
+			</div>
+
+			<div>
+                            <label for="type" class="block text-sm font-medium text-gray-200 mb-1">Project Type</label>
+                            <select id="type" name="type" required
+                                    class="w-full p-3 border border-gray-600 focus:border-secondary focus:ring-secondary rounded-md text-primary">
+				<option value="" disabled selected>Select Primary Interest</option>
+				<option value="residential">Residential Electrical/Solar</option>
+				<option value="commercial">Commercial Electrical/Solar</option>
+				<option value="industrial">Industrial Installation</option>
+				<option value="security">Backup & Security</option>
+                            </select>
+			</div>
+
+			<div>
+                            <label for="details" class="block text-sm font-medium text-gray-200 mb-1">Project Details (Solar system size, wiring needs, etc.)</label>
+                            <textarea id="details" name="details" rows="4" required
+				      class="w-full p-3 border border-gray-600 focus:border-secondary focus:ring-secondary rounded-md text-primary"></textarea>
+			</div>
+
+			<button type="submit" class="redglow w-full cta-button inline-flex items-center justify-center text-lg p-3">
+                            Submit Quote Request
+			</button>
+			<p id="form-message" class="text-center mt-4 font-semibold hidden text-secondary"></p>
+                    </form>
+		</div>
+            </section>
+
+            <!-- Contact Footer -->
+            <section id="contact" class="py-12 bg-primary text-gray-300" style="background: #000000">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 class="text-2xl font-black mb-6 uppercase text-secondary">
+			<img src="logo.jpeg" style="width: 180px; filter: grayscale(100); margin: 0 auto;">
+			<br>
+			Empowering Water and Mining Solutions
+                    </h2>
+                    <!-- Mock Contact Details -->
+                    <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-12">
+			<div class="flex items-center">
+                            <i data-lucide="mail" class="w-6 h-6 mr-3 text-secondary"></i>
+                            <span class="font-bold">Email:</span> <a href="mailto:info@mencaveelectric.com" class="ml-2 hover:underline">info@wealthmasterbc.com</a>
+			</div>
+			<div class="flex items-center">
+                            <i data-lucide="phone" class="w-6 h-6 mr-3 text-secondary"></i>
+                            <span class="font-bold">Phone:</span> <a href="tel:+264815559565" class="ml-2 hover:underline">+264 81 555 9565</a>
+			</div>
+			<div class="flex items-center">
+                            <i data-lucide="facebook" class="w-6 h-6 mr-3 text-secondary"></i>
+                            <span class="font-bold"></span> <a href="" class="ml-2 hover:underline">Facebook</a>
+			</div>
+                    </div>
+		</div>
+            </section>
+
+	</main>
+
+	<!-- Vanilla JavaScript for Interaction -->
+	<script>
+         // 1. Mobile Menu Toggle
+         function toggleMenu() {
+             const menu = document.getElementById('mobile-menu');
+             const buttonIcon = document.querySelector('#mobile-menu-button [data-lucide]');
+             menu.classList.toggle('hidden');
+
+             if (menu.classList.contains('hidden')) {
+                 buttonIcon.setAttribute('data-lucide', 'menu');
+             } else {
+                 buttonIcon.setAttribute('data-lucide', 'x');
+             }
+             lucide.createIcons(); // Re-render icon
+         }
+         document.getElementById('mobile-menu-button').addEventListener('click', toggleMenu);
+
+
+         // 2. Form Submission Handling (Simulated Quote)
+         document.getElementById('quote-form').addEventListener('submit', function(e) {
+             e.preventDefault();
+
+             const messageElement = document.getElementById('form-message');
+
+             // Success message
+             const successText = `Thank you! Your quote request has been sent. We will contact you shortly to discuss your project.`;
+
+             // Display success message
+             messageElement.textContent = successText;
+             messageElement.classList.remove('hidden');
+
+             // Clear the form after submission
+             this.reset();
+
+             // Optional: Hide message after a few seconds
+             setTimeout(() => {
+                 messageElement.classList.add('hidden');
+             }, 8000);
+         });
+
+         // 3. Initialize Lucide Icons on load
+         window.onload = function() {
+             lucide.createIcons();
+         };
+
+	</script>
+    </body>
+</html>

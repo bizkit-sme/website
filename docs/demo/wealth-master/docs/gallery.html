@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Men Cave Electrical & Solar CC | Industrial, Commercial & Residential Services</title>
+	<!-- Load Tailwind CSS -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	<!-- Load Lucide Icons -->
+	<script src="https://unpkg.com/lucide@latest"></script>
+	<style>
+         /* Basic Reset and Typography */
+         body {
+             font-family: sans-serif;
+             margin: 0;
+             padding: 0;
+             background-color: #f4f4f4;
+             color: #333;
+         }
+
+         header {
+             text-align: center;
+             padding: 20px;
+             background-color: #333;
+             color: white;
+         }
+
+         /* Gallery Grid Styles */
+         .gallery-container {
+             display: grid;
+             /* Responsive Grid: Changes column count based on viewport width */
+             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+             gap: 15px;
+             padding: 20px;
+             max-width: 1200px;
+             margin: 0 auto;
+         }
+
+         .gallery-item {
+             overflow: hidden;
+             border-radius: 8px;
+             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+             cursor: pointer;
+             transition: transform 0.3s ease;
+         }
+
+         .gallery-item:hover {
+             transform: scale(1.03);
+             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+         }
+
+         .gallery-item img {
+             width: 100%;
+             height: 250px;
+             object-fit: cover;
+             display: block;
+             transition: opacity 0.3s;
+         }
+
+         /* Modal Overlay Styles */
+         .modal {
+             display: none; /* Hidden by default */
+             position: fixed; /* Stay in place */
+             z-index: 100; /* Sit on top */
+             padding-top: 60px; /* Location of the box (top padding) */
+             left: 0;
+             top: 0;
+             width: 100%;
+             height: 100%;
+             overflow: auto; /* Enable scroll if needed */
+             background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+         }
+
+         /* Modal Content (Image) */
+         .modal-content {
+             margin: auto;
+             display: block;
+             width: 90%;
+             max-width: 900px;
+             max-height: 80vh; /* Limits image height on large screens */
+             object-fit: contain; /* Ensures the whole image is visible */
+         }
+
+         /* Caption Text */
+         #caption {
+             margin: 15px auto;
+             display: block;
+             width: 80%;
+             max-width: 700px;
+             text-align: center;
+             color: #ccc;
+             padding: 10px 0;
+             height: 150px;
+         }
+
+         /* Close Button */
+         .close-btn {
+             position: absolute;
+             top: 15px;
+             right: 35px;
+             color: #f1f1f1;
+             font-size: 40px;
+             font-weight: bold;
+             transition: 0.3s;
+             cursor: pointer;
+         }
+
+         .close-btn:hover,
+         .close-btn:focus {
+             color: #bbb;
+             text-decoration: none;
+             cursor: pointer;
+         }
+
+         /* Navigation Buttons */
+         .nav-btn {
+             position: absolute;
+             top: 50%;
+             transform: translateY(-50%);
+             background: rgba(255, 255, 255, 0.2);
+             color: white;
+             border: none;
+             padding: 15px;
+             cursor: pointer;
+             font-size: 30px;
+             line-height: 1;
+             z-index: 101;
+             opacity: 0.7;
+             transition: opacity 0.2s;
+             border-radius: 5px;
+         }
+
+         .nav-btn:hover {
+             opacity: 1;
+         }
+
+         .prev-btn {
+             left: 10px;
+         }
+
+         .next-btn {
+             right: 10px;
+         }
+
+
+	 /*******************************************/
+	 #LOGO{
+	     width: 200px;
+	     border-radius: 15px;
+	     margin: 0 auto;
+	 }
+
+	 h1{
+	     font-size: 20px !important;
+	     font-weight: bolder !important;
+	     margin: 5px 0 !important;
+	 }
+	</style>
+    </head>
+    <body>
+
+	<header>
+	    <img src="logo.png" id="LOGO">
+            <h1>Man Cave <span class="red">Electrical</span> & Solar CC</h1>
+            <p>Our Work</p>
+	</header>
+
+	<main class="gallery-container">
+            <div class="gallery-item">
+		<img src="gallery/1.jpeg" alt="" loading="lazy" data-index="0">
+            </div>
+            <div class="gallery-item">
+		<img src="gallery/2.jpeg" alt="" loading="lazy" data-index="1">
+            </div>
+            <div class="gallery-item">
+		<img src="gallery/3.jpeg" alt="" loading="lazy" data-index="2">
+            </div>
+            <div class="gallery-item">
+		<img src="gallery/4.jpeg" alt="" loading="lazy" data-index="3">
+            </div>
+            <div class="gallery-item">
+		<img src="gallery/5.jpeg" alt="" loading="lazy" data-index="4">
+            </div>
+            <div class="gallery-item">
+		<img src="gallery/6.jpeg" alt="" loading="lazy" data-index="5">
+            </div>
+	    <div class="gallery-item">
+		<img src="gallery/7.jpeg" alt="" loading="lazy" data-index="5">
+	    </div>
+	    <div class="gallery-item">
+		<img src="gallery/8.jpeg" alt="" loading="lazy" data-index="5">
+	    </div>
+	    <div class="gallery-item">
+		<img src="gallery/9.jpeg" alt="" loading="lazy" data-index="5">
+	    </div>
+	    <div class="gallery-item">
+		<img src="gallery/10.jpeg" alt="" loading="lazy" data-index="5">
+	    </div>
+	    <div class="gallery-item">
+		<img src="gallery/11.jpeg" alt="" loading="lazy" data-index="5">
+	    </div>
+	    <div class="gallery-item">
+		<img src="gallery/12.jpeg" alt="" loading="lazy" data-index="5">
+	    </div>
+	    <div class="gallery-item">
+		<img src="gallery/13.jpeg" alt="" loading="lazy" data-index="5">
+            </div>
+	    <div class="gallery-item">
+		<img src="gallery/14.jpeg" alt="" loading="lazy" data-index="5">
+	    </div>
+	    <div class="gallery-item">
+		<img src="gallery/15.jpeg" alt="" loading="lazy" data-index="5">
+	    </div>
+	</main>
+
+	<div id="modal" class="modal">
+            <span class="close-btn">&times;</span>
+            <button class="nav-btn prev-btn">&leftarrow;</button>
+            <img class="modal-content" id="modalImage" src="" alt="">
+            <button class="nav-btn next-btn">&rightarrow;</button>
+            <div id="caption"></div>
+	</div>
+
+	<!-- Contact Footer -->
+        <section id="contact" class="py-12 bg-primary text-gray-300" style="background: #000000">
+	    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-2xl font-black mb-6 uppercase text-secondary">
+		    Men Cave Electrical & Solar CC
+                </h2>
+                <p class="text-lg mb-8 max-w-2xl mx-auto">
+		    Trusted experts for all your electrical, solar, and backup needs. Servicing Residential, Commercial, and Industrial sectors.
+                </p>
+
+                <!-- Mock Contact Details -->
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-12">
+		    <div class="flex items-center">
+                        <i data-lucide="mail" class="w-6 h-6 mr-3 text-secondary"></i>
+                        <span class="font-bold">Email:</span> <a href="mailto:info@mencaveelectric.com" class="ml-2 hover:underline">info@mencaveelectric.com</a>
+		    </div>
+		    <div class="flex items-center">
+                        <i data-lucide="phone" class="w-6 h-6 mr-3 text-secondary"></i>
+                        <span class="font-bold">Phone:</span> <a href="tel:+264812096253" class="ml-2 hover:underline">+264 81 209 6253</a>
+		    </div>
+		    <div class="flex items-center">
+                        <i data-lucide="facebook" class="w-6 h-6 mr-3 text-secondary"></i>
+                        <span class="font-bold"></span> <a href="https://www.facebook.com/people/Man-Cave-Electrical-Solar-CC/61581961275267/" class="ml-2 hover:underline">Facebook</a>
+		    </div>
+                </div>
+	    </div>
+        </section>
+
+	<script>
+         document.addEventListener('DOMContentLoaded', () => {
+             // Get all necessary DOM elements
+             const galleryItems = document.querySelectorAll('.gallery-item img');
+             const modal = document.getElementById('modal');
+             const modalImage = document.getElementById('modalImage');
+             const captionText = document.getElementById('caption');
+             const closeBtn = document.querySelector('.close-btn');
+             const prevBtn = document.querySelector('.prev-btn');
+             const nextBtn = document.querySelector('.next-btn');
+
+             let currentIndex = 0;
+             const imagesArray = Array.from(galleryItems);
+             const totalImages = imagesArray.length;
+
+             // Function to open the modal
+             function openModal(imageElement) {
+                 modal.style.display = "block";
+                 modalImage.src = imageElement.src;
+                 captionText.innerHTML = imageElement.alt;
+                 currentIndex = parseInt(imageElement.dataset.index);
+             }
+
+             // Function to close the modal
+             function closeModal() {
+                 modal.style.display = "none";
+             }
+
+             // Function to show the next or previous image
+             function showImage(step) {
+                 currentIndex = (currentIndex + step + totalImages) % totalImages;
+                 const nextImage = imagesArray[currentIndex];
+
+                 modalImage.src = nextImage.src;
+                 captionText.innerHTML = nextImage.alt;
+             }
+
+             // --- EVENT LISTENERS ---
+
+             // 1. Attach click handler to each gallery image
+             galleryItems.forEach((img) => {
+                 img.addEventListener('click', () => {
+                     openModal(img);
+                 });
+             });
+
+             // 2. Close button handler
+             closeBtn.addEventListener('click', closeModal);
+
+             // 3. Navigation button handlers
+             prevBtn.addEventListener('click', () => showImage(-1));
+             nextBtn.addEventListener('click', () => showImage(1));
+
+             // 4. Keyboard navigation (Escape key to close, Arrows to navigate)
+             document.addEventListener('keydown', (e) => {
+                 if (modal.style.display === "block") {
+                     if (e.key === "Escape") {
+                         closeModal();
+                     } else if (e.key === "ArrowLeft") {
+                         showImage(-1);
+                     } else if (e.key === "ArrowRight") {
+                         showImage(1);
+                     }
+                 }
+             });
+
+             // 5. Click outside the modal content to close
+             modal.addEventListener('click', (e) => {
+                 // Only close if the click target is the modal background itself
+                 if (e.target === modal) {
+                     closeModal();
+                 }
+             });
+         });
+	</script>
+
+    </body>
+</html>
